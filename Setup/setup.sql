@@ -46,17 +46,15 @@ CREATE TABLE Staff(
 );
 CREATE TABLE Bans(
 	Ban_ID INT NOT NULL AUTO_INCREMENT,
-    Member_ID INT,
-    Rental_ID INT,
+    	Member_ID INT,
+    	Rental_ID INT,
 	Reason VARCHAR(64) NOT NULL,
 	Start_Date DATE NOT NULL,
 	End_Date DATE,
 
-	PRIMARY KEY (Ban_ID )
+	PRIMARY KEY (Ban_ID ),
+	FOREIGN KEY(Member_ID) REFERENCES Members(Member_ID),
+	FOREIGN KEY(Rental_ID) REFERENCES Rentals(Rental_ID)
 
 );
-ALTER TABLE Bans 
-    ADD FOREIGN KEY(Member_ID) REFERENCES Members(Member_ID);
-ALTER TABLE Bans 
-	ADD FOREIGN KEY(Rental_ID) REFERENCES Rentals(Rental_ID);
 
