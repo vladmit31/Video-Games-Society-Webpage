@@ -15,10 +15,10 @@
     <title>Video Game Society</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../public/css/games.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
+    <link href="../../public/css/gameList.css" rel="stylesheet">
 
   </head>
 
@@ -40,9 +40,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
           
-            <li class="nav-item">
+          <!--  <li class="nav-item">
               <a class="nav-link" href="#">Login</a>
-            </li>
+            </li> -->
             
             
           </ul>
