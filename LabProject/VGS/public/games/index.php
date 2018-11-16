@@ -7,7 +7,24 @@
     </div>
     
     <hr/>
-    <?php $result = find_all_games(); ?>
+    
+    <?php 
+    if(is_post_request()) {
+       $input = $_POST['searchValue'] ?? '';
+       
+       $sql = "SELECT * FROM Games ";
+       $sql .= "WHERE Title like '%$input%' || Genre like '%$input%' || Description like '%$input%'";                 
+       $sql .= "ORDER BY Game_ID DESC";
+        
+       $result = mysqli_query($db, $sql);
+       confirm_result_set($result);
+       
+       if($input == '')
+            $result = find_all_games();
+       
+    }else  $result = find_all_games(); 
+    ?>
+    
     <?php while($game = mysqli_fetch_assoc($result)){ ?>
     
       <div class="row">
