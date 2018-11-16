@@ -20,7 +20,6 @@ CREATE TABLE Games(
 	FormatOfGame VARCHAR(9),
 	Value INT NOT NULL,
     isAvailable BOOLEAN NOT NULL,
-    image VARCHAR(254),
     
 	PRIMARY KEY (Game_ID)
 
@@ -69,9 +68,9 @@ INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES("Tom" , "07700 900199
 INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES("Kayla" , "07700 900312" , "kayla@gmail.com" , 0);
 
 
-INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable,image) VALUES('Red Dead Redemption 2', 'Action' , '2018-10-26', 'America, 1899. The end of the Wild West era has begun.','CD',50,true,'http://ichef.bbci.co.uk/news/976/cpsprodpb/2E40/production/_96204811_rdr2_preordernow_649x352a-newbanner-5.23.jpg');
-INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable,image) VALUES('Far Cry 5', 'Action' , '2018-03-27', 'The main story revolves around the Project at Eden Gate, a doomsday cult that rules the land under the guise of its charismatic leader, Joseph Seed.', 'CD',25,true,'https://static.lexpress.fr/medias_11500/w_640,h_360,c_fill,g_north/v1496068762/far-cry-5_5888385.jpg');
-INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable,image) VALUES('Assassins Creed Odyssey', "Action" , '2018-10-05', 'It is the eleventh major installment, and twentieth overall, in the Assassins Creed series and the successor to 2017 Assassins Creed Origins','CD',45,true,'http://www.powerpyx.com/wp-content/uploads/assassins-creed-odyssey-wallpaper.jpg');
+INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Red Dead Redemption 2', 'Action' , '2018-10-26', 'America, 1899. The end of the Wild West era has begun.','CD',50,true);
+INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Far Cry 5', 'Action' , '2018-03-27', 'The main story revolves around the Project at Eden Gate, a doomsday cult that rules the land under the guise of its charismatic leader, Joseph Seed.', 'CD',25,true);
+INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Assassins Creed Odyssey', "Action" , '2018-10-05', 'It is the eleventh major installment, and twentieth overall, in the Assassins Creed series and the successor to 2017 Assassins Creed Origins','CD',45,true);
 
 
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(1,2,'2018-11-11',false);
