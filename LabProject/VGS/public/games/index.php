@@ -19,6 +19,7 @@
         <div class="col-md-5">
           <h3><?php echo h($game['Title']); ?></h3>
           <p><?php echo h($game['Description']) ?></p>
+          
 
           <a class="btn btn-primary" href="<?php echo url_for('./games/show.php?id=' . h(u($game['Game_ID']))); ?>"> See More</a> 
         </div>
