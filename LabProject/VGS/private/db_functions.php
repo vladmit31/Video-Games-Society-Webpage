@@ -4,7 +4,7 @@
         global $db;
     
         $sql = "SELECT * FROM Games ";
-        $sql .= "ORDER BY Game_ID ASC";
+        $sql .= "ORDER BY Game_ID DESC";
         //echo $sql;
         $result = mysqli_query($db, $sql);
         confirm_result_set($result);

@@ -18,11 +18,12 @@ CREATE TABLE Games(
 	Release_Year DATE NOT NULL,
 	Description VARCHAR(255),
 	FormatOfGame VARCHAR(9),
-	Value INT,
+	Value INT NOT NULL,
     isAvailable BOOLEAN NOT NULL,
     image VARCHAR(254),
     
 	PRIMARY KEY (Game_ID)
+
 );
 
 CREATE TABLE Rentals(
@@ -48,8 +49,8 @@ CREATE TABLE Staff(
 );
 CREATE TABLE Bans(
 	Ban_ID INT NOT NULL AUTO_INCREMENT,
-    	Member_ID INT,
-    	Rental_ID INT,
+    Member_ID INT,
+    Rental_ID INT,
 	Reason VARCHAR(64) NOT NULL,
 	Start_Date DATE NOT NULL,
 	End_Date DATE,

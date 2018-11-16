@@ -20,14 +20,22 @@
     <!-- Custom styles for this template -->
     <link href="../../public/css/gameList.css" rel="stylesheet">
 
+    <style>
+    body{
+        width:90%;
+        margin: 0 auto;
+    }
+    </style>
+    
   </head>
+
 
   <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Video Game Society</a>
+        <a class="navbar-brand" href="../../public/games/index.php">Video Game Society</a>
 
         <!-- Search form -->
         <input class="form-control" type="text" placeholder="Search games" aria-label="Search">
@@ -39,13 +47,11 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-          
-          <!--  <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li> -->
-            
+
             
           </ul>
         </div>
       </div>
     </nav>
+    
+    <body>

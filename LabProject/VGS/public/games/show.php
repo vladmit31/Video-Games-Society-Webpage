@@ -32,10 +32,11 @@ mysqli_free_result($result);
           <p><?php echo 'Release Year: ' . h($game['Release_Year']); ?></p>
           <p><?php echo 'Format: ' . h($game['FormatOfGame']); ?></p>
           <p><?php echo 'Price: ' . '$'. h($game['Value']); ?></p>
+          <p><b><?php echo $game['isAvailable'] == '1' ? 'Available' : 'Not Available'; ?></b></p>
           <a class="btn btn-primary" href="<?php echo url_for('./games/index.php'); ?>">Back to List</a> 
         </div>
 </div>
-      
+
  
  <hr/>
 <?php include(SHARED_PATH . '/footer.php'); ?>
