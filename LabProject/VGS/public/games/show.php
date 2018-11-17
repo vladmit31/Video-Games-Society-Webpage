@@ -20,11 +20,6 @@ mysqli_free_result($result);
 
     
 <div class="col">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" width="800" height="400" src="http://www.powerpyx.com/wp-content/uploads/assassins-creed-odyssey-wallpaper.jpg"  alt="">
-          </a>
-        </div>
         <div class="col-md-5">
           <h3><?php echo h($game['Title']); ?></h3>
           <p><?php echo h($game['Description']) ?></p>
@@ -32,10 +27,11 @@ mysqli_free_result($result);
           <p><?php echo 'Release Year: ' . h($game['Release_Year']); ?></p>
           <p><?php echo 'Format: ' . h($game['FormatOfGame']); ?></p>
           <p><?php echo 'Price: ' . '$'. h($game['Value']); ?></p>
+          <p><b><?php echo $game['isAvailable'] == '1' ? 'Available' : 'Not Available'; ?></b></p>
           <a class="btn btn-primary" href="<?php echo url_for('./games/index.php'); ?>">Back to List</a> 
         </div>
 </div>
-      
+
  
  <hr/>
 <?php include(SHARED_PATH . '/footer.php'); ?>
