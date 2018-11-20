@@ -32,7 +32,11 @@
           <h3><?php echo h($game['Title']); ?></h3>
           <p><?php echo ($game['Description']) ?></p>
           
-          <a class="btn btn-primary" href="<?php echo url_for('./games/show.php?id=' . h(u($game['Game_ID']))); ?>"> See More</a> 
+          <div class= "col">
+                <a class="btn btn-primary" href="<?php echo url_for('./games/show.php?id=' . h(u($game['Game_ID']))); ?>"> See More</a> 
+                <a class="btn btn-primary" href="<?php echo url_for('./games/edit.php?id=' . h(u($game['Game_ID']))); ?>">Edit</a> 
+                <a class="btn btn-primary" href="<?php echo url_for('./games/delete.php?id=' . h(u($game['Game_ID']))); ?>">Delete</a> 
+          </div> 
         </div>
       </div>
 
