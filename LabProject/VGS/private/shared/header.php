@@ -18,7 +18,7 @@
     <link href="../../public/css/games.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../../public/css/gameList.css" rel="stylesheet">
+    <link href=" /gameList.css" rel="stylesheet">
 
     <style>
     body{
@@ -44,6 +44,6 @@
       </div>
     </nav>
     </form> 
-    <?php  ?>
-    
+   
+    <br><br>
     <body>
