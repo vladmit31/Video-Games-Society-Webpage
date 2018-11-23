@@ -1,6 +1,6 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
-
+<?php require_login(); ?>
 
 <br>
 <h3>Add new Game</h3>

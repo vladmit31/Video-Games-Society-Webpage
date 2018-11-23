@@ -1,7 +1,3 @@
-
-<!-- This document contains the universal header, holding the login and search buttons as well as a link back the the main landing page-->
-
-
 <!doctype html>
 <html lang="en">
 
@@ -44,6 +40,11 @@
       </div>
     </nav>
     </form> 
+       <div class="actions">
+     <br>
+        <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/login.php'); ?>">Logout</a>
+    </div>
+  
     <?php  ?>
     
     <body>
