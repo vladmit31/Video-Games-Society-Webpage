@@ -10,4 +10,15 @@
         confirm_result_set($result);
     return $result;
   }
+  
+  function find_all_members() {
+        global $db;
+    
+        $sql = "SELECT * FROM Members ";
+        $sql .= "ORDER BY Member_ID DESC";
+        //echo $sql;
+        $result = mysqli_query($db, $sql);
+        confirm_result_set($result);
+    return $result;
+  }
 ?>
