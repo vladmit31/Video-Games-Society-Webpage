@@ -12,6 +12,7 @@
   function logout() {
 
      unset($_SESSION['username']);
+    
     // session_destroy(); // optional: destroys the whole session
     return true;
   }

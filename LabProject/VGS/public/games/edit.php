@@ -3,7 +3,8 @@
 <?php require_login(); ?>
 
 <?php 
-$id = $_GET['id'] ?? '1'; // PHP > 7.0
+$id = $_GET['id'] ?? ''; // PHP > 7.0
+if($id == '')  redirect_to(url_for('./games/index.php') );
 if(is_post_request()) {
 
   // Handle form values sent by edit.php
@@ -46,9 +47,14 @@ if(is_post_request()) {
     $sql.= "WHERE Game_ID='" . $id . "'";
     
     $result = mysqli_query($db, $sql);
+    
     confirm_result_set($result);
     
     $game = mysqli_fetch_assoc($result);
+    
+    if($game==null)
+        redirect_to(url_for('./games/index.php') );
+        
     mysqli_free_result($result);
 
 ?>
