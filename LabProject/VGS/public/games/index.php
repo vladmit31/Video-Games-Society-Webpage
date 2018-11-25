@@ -1,6 +1,7 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
+   
      <div class="actions">
      <br>
         <a class="btn btn-primary" href="./new.php">Add Game</a>

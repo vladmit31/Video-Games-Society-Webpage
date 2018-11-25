@@ -35,8 +35,8 @@ CREATE TABLE Rentals(
 	Extension_Made BOOLEAN NOT NULL,
 
 	PRIMARY KEY (Rental_ID),
-	FOREIGN KEY (Member_ID) REFERENCES Members (Member_ID),
-	FOREIGN KEY (Game_ID) REFERENCES Games(Game_ID)
+	FOREIGN KEY (Member_ID) REFERENCES Members (Member_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (Game_ID) REFERENCES Games(Game_ID) ON DELETE CASCADE ON UPDATE CASCADE
 	
 );
 
@@ -53,10 +53,11 @@ CREATE TABLE Bans(
 	Reason VARCHAR(256) NOT NULL,
 	Start_Date DATE NOT NULL,
 	End_Date DATE,
-
+  
 	PRIMARY KEY (Ban_ID),
 	FOREIGN KEY(Member_ID) REFERENCES Members(Member_ID),
 	FOREIGN KEY(Rental_ID) REFERENCES Rentals(Rental_ID)
+
 
 );
 
@@ -85,3 +86,4 @@ INSERT INTO Staff(Name, Role) VALUES(Bob Taylor, Volunteer);
 INSERT INTO Staff(Name, Role) VALUES(Charlie Smith, Volunteer);
 
 INSERT INTO Bans(Rental_ID, Reason, Start_Date, End_Date) VALUES(1, "Late Return", '2018-11-15', NULL);
+
