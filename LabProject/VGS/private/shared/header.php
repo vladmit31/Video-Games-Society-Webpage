@@ -10,6 +10,7 @@
 
     <title>Video Game Society</title>
 
+
     <link href="../../public/css/games.css" rel="stylesheet">
 
     <link href=" /gameList.css" rel="stylesheet">
@@ -46,5 +47,17 @@
     
 
    
-    <br><br>
+    <div class="row">
+        <div class= "col">
+                <div class="actions">
+                 <br><br><br>
+                    <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/games/index.php'); ?>">Games</a>
+                     <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/members/index.php'); ?>">Members</a>
+                
+                </div>
+            
+        </div> 
+    </div>
+    
+    <br>
     <body>

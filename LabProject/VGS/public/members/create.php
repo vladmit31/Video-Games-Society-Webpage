@@ -17,7 +17,7 @@ if(is_post_request()) {
     $sql .= "'" . $member['Name'] . "',";
     $sql .= "'" . $member['Tel'] . "',";
     $sql .= "'" . $member['Email'] . "',";
-    $sql .= "'" . $member['Extensions_Made'] . "',";
+    $sql .= "'" . $member['Extensions_Made'] . "'";
     $sql .= ")";
 
     if(mysqli_query($db, $sql)) {
