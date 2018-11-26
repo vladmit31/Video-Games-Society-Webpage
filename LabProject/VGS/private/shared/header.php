@@ -38,26 +38,19 @@
       </div>
     </nav>
     </form> 
-       <div class="actions">
-     <br>
-        <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/login.php'); ?>">Logout</a>
-    </div>
-  
-    <?php  ?>
-    
 
-   
+  
     <div class="row">
         <div class= "col">
                 <div class="actions">
                  <br><br><br>
                     <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/games/index.php'); ?>">Games</a>
                      <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/members/index.php'); ?>">Members</a>
-                
+                    <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/login.php'); ?>">Logout</a>
                 </div>
             
         </div> 
     </div>
-    
+    <?php require_login(); ?>
     <br>
     <body>

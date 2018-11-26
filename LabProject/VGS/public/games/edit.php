@@ -1,6 +1,5 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
-<?php require_login(); ?>
 
 <?php 
 $id = $_GET['id'] ?? ''; // PHP > 7.0

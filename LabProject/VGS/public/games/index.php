@@ -1,6 +1,5 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
-<?php require_login(); ?>
 
    <h1>All Games</h1>
      <div class="actions">
