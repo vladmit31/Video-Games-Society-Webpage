@@ -31,7 +31,7 @@ if(is_post_request()){
     mysqli_free_result($result);
     
     ?>
-    <h3>Delete <i><?php echo h($member['Title']); ?></i>  ?</h3>
+    <h3>Delete member: <i><?php echo h($member['Name']); ?></i>  ?</h3>
     <br/>
     <form action="<?php echo url_for('./members/delete.php?id=' . h(u($member['Member_ID']))); ?>" method="post">
     <div class="row">
