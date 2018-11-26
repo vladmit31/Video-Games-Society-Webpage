@@ -7,13 +7,20 @@ $id = $_GET['id'] ?? '';
 if($id == '')   redirect_to(url_for('./games/index.php'));
  
 if(is_post_request()){
-    echo 'POST';
+    
+    $sqlTemp = "DELETE FROM Rentals ";
+    $sqlTemp .= "WHERE Game_ID='" . $id . "'";
+    $resultTemp = mysqli_query($db, $sqlTemp);
+
+    confirm_result_set($resultTemp);
+    
     $sql = "DELETE FROM Games ";
     $sql.= "WHERE Game_ID='" . $id . "'";
-    
+
     $result = mysqli_query($db, $sql);
+
     confirm_result_set($result);
-    
+
     $game = mysqli_fetch_assoc($result);
 
     mysqli_free_result($result);

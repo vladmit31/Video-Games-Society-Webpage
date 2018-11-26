@@ -2,6 +2,7 @@
 <?php include(SHARED_PATH . '/header.php'); ?>
 <?php require_login(); ?>
 
+   
      <div class="actions">
      <br>
         <a class="btn btn-primary" href="./new.php">Add Game</a>
