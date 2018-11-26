@@ -19,6 +19,7 @@
     </div>
   </div>
   
+  <div class="form-row">
   <div class="form-group col-md-5">
       <label for="email">Email</label>
       <input type="text" class="form-control" name="email" placeholder="Email" method="post">
@@ -28,13 +29,13 @@
   <div class="form-row">
     <div class="form-group col-md-3">
       <label for="extensions_made">Extensions Made</label>
-      <select name="extensions_made" class="form-control" id="extensions_made" method="post">
+      <select name="extensions_made" class="form-control" method="post">
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
       </select>
     </div>
-    
+ </div>
     <button type="submit" class="btn btn-primary">Add</button>
 </form>
 
