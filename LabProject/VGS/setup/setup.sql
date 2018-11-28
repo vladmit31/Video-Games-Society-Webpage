@@ -44,9 +44,11 @@ CREATE TABLE Staff(
  Staff_ID INT NOT NULL AUTO_INCREMENT,
  Name VARCHAR(64) NOT NULL,
  Role VARCHAR(20),
-
+ Pass VARCHAR(20) NOT NULL,
+ 
  PRIMARY KEY (Staff_ID )
 );
+
 CREATE TABLE Bans(
  Ban_ID INT NOT NULL AUTO_INCREMENT,
   Rental_ID INT,
@@ -80,8 +82,8 @@ INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(1,2,'201
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(2,1,'2018-11-04',false);
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(5,3,'2018-10-16',false);
 
-INSERT INTO Staff(Name, Role) VALUES('Alice Miller', 'Secretary');
-INSERT INTO Staff(Name, Role) VALUES('Bob Taylor', 'Volunteer');
-INSERT INTO Staff(Name, Role) VALUES('Charlie Smith', 'Volunteer');
+INSERT INTO Staff(Name, Role, Pass) VALUES('Alice Miller', 'Secretary', 'AlMil');
+INSERT INTO Staff(Name, Role, Pass) VALUES('Bob Taylor', 'Volunteer', 'BobTay123');
+INSERT INTO Staff(Name, Role, Pass) VALUES('Charlie Smith', 'Volunteer', 'ChSm987');
 
 INSERT INTO Bans(Rental_ID, Reason, Start_Date, End_Date) VALUES(1, 'Late Return', '2018-11-15', NULL);

@@ -46,6 +46,7 @@
                  <br><br><br>
                     <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/games/index.php'); ?>">Games</a>
                      <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/members/index.php'); ?>">Members</a>
+                    <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/staff/index.php'); ?>">Staff</a>
                     <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/login.php'); ?>">Logout</a>
                 </div>
             
