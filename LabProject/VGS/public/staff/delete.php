@@ -3,41 +3,41 @@
 <hr/>
 <?php
 $id = $_GET['id'] ?? ''; 
-if($id == '')   redirect_to(url_for('./members/index.php'));
+if($id == '')   redirect_to(url_for('./staff/index.php'));
  
 if(is_post_request()){
-    echo 'POST';
-    $sql = "DELETE FROM Members ";
-    $sql.= "WHERE Member_ID='" . $id . "'";
+
+    $sql = "DELETE FROM Staff ";
+    $sql.= "WHERE Staff_ID='" . $id . "'";
     
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
     
-    $member = mysqli_fetch_assoc($result);
+    $staff = mysqli_fetch_assoc($result);
 
     mysqli_free_result($result);
     
-    redirect_to(url_for('./members/index.php'));
+    redirect_to(url_for('./staff/index.php'));
 } 
    
-    $sql = "SELECT * FROM Members ";
-    $sql.= "WHERE Member_ID='" . $id . "'";
+    $sql = "SELECT * FROM Staff ";
+    $sql.= "WHERE Staff_ID='" . $id . "'";
     
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
     
-    $member = mysqli_fetch_assoc($result);
+    $staff = mysqli_fetch_assoc($result);
 
     mysqli_free_result($result);
     
     ?>
-    <h3>Delete member: <i><?php echo h($member['Name']); ?></i>  ?</h3>
+    <h3>Delete staff: <i><?php echo h($staff['Name']); ?></i>  ?</h3>
     <br/>
-    <form action="<?php echo url_for('./members/delete.php?id=' . h(u($member['Member_ID']))); ?>" method="post">
+    <form action="<?php echo url_for('./staff/delete.php?id=' . h(u($staff['Staff_ID']))); ?>" method="post">
     <div class="row">
         <div class="col-md-6">
             <button type="submit" class="btn btn-primary">DELETE</button>
-            <a class="btn btn-primary" href="<?php echo url_for('./members/index.php'); ?>">Cancel</a>
+            <a class="btn btn-primary" href="<?php echo url_for('./staff/index.php'); ?>">Cancel</a>
         </div>
     </div>
     </form>
