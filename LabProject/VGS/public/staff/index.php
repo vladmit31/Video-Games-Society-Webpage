@@ -1,5 +1,7 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
+<?php require_Secretary_login(); ?>
+
 
    <h1>All Staff</h1>
      <div class="actions">

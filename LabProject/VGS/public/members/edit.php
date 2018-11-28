@@ -5,8 +5,6 @@
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 if(is_post_request()) {
 
-  // Handle form values sent by edit.php
-    
   $member = [];
   $member['Name'] = $_POST['name'] ?? '';
   $member['Tel'] = $_POST['tel'] ?? '';
@@ -21,11 +19,13 @@ if(is_post_request()) {
     $sql .= "WHERE Member_ID='" . $id . "'";
 
     $result = mysqli_query($db, $sql);
-    // For UPDATE statements, $result is true/false
+
     if($result) {
+      mysqli_free_result($result);
       redirect_to(url_for('./members/index.php') );
     } else {
       // UPDATE failed
+      mysqli_free_result($result);
       echo mysqli_error($db);
       db_disconnect($db);
       exit;

@@ -8,23 +8,21 @@ if(is_post_request()) {
   $password = $_POST['pass'] ?? '';
 
     $sql = "SELECT * FROM Staff ";
-    $sql .= "WHERE Staff_ID='" . $username . "' ";
-    $sql .= "LIMIT 1;";
+    $sql .= "WHERE Staff_ID LIKE '" . $username . "' ";
+    $sql .= "LIMIT 1";
+    
+
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
-    
+
     $staff = mysqli_fetch_assoc($result); 
     mysqli_free_result($result);
    
-    if($username == 'kotsios'){ //$staff){
-   
-      if($password == 'pass' ){// $password_verify($password, "pass")) {
-
-        login($username);
-
+    if($staff){ 
+      if(password_verify($password, $staff['Pass'])) { //$password == $staff['Pass']){
+        login($username, $staff['Role']);
         redirect_to(url_for('./games/index.php'));
-      } 
-
+      }
     }
 
 }

@@ -38,7 +38,7 @@
       </div>
     </nav>
     </form> 
-
+ 
   
     <div class="row">
         <div class= "col">
@@ -52,6 +52,12 @@
             
         </div> 
     </div>
+          
     <?php require_login(); ?>
+      
+    <b><?php echo 'Username: ';?></b>  <?php echo $_SESSION['username']; ?>
+        <br>
+     <b><?php echo 'Role: ';?></b>  <?php echo $_SESSION['role']; ?>
     <br>
+
     <body>

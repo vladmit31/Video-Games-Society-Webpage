@@ -1,30 +1,33 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
+<?php require_Secretary_login(); ?>
+
 <?php 
-$id = $_GET['id'] ?? '1'; // PHP > 7.0
+$id = $_GET['id'] ?? ''; 
+if($id == "") redirect_to(url_for('./staff/index.php') );
+
 if(is_post_request()) {
 
-  // Handle form values sent by edit.php
     
   $staff = [];
-  $staff['Staff_ID'] = $_POST['staffID'] ?? '';
-  $staff['Name'] = $_POST['name'] ?? '';
-  $staff['Role'] = $_POST['role'] ?? '';
+  $staff['name'] = $_POST['name'] ?? '';
+  $staff['role'] = $_POST['role'] ?? '';
 
    
   $sql = "UPDATE Staff SET ";
-    $sql .= "Staff_ID='" . $staff['Staff_ID'] . "',";
-    $sql .= "Name='" . $staff['Name'] . "',";
-    $sql .= "Role='" . $staff['Role'] . "' "; 
-    $sql .= "WHERE Staff_ID='" . $id . "'";
+    $sql .= "Name='" . $staff['name'] . "',";
+    $sql .= "Role='" . $staff['role'] . "' "; 
+    $sql .= "WHERE Staff_ID LIKE'".$id."'";
 
     $result = mysqli_query($db, $sql);
-    // For UPDATE statements, $result is true/false
+
     if($result) {
-      redirect_to(url_for('./staff/index.php') );
-    } else {
+       mysqli_free_result($result);
+       redirect_to(url_for('./staff/index.php') );
+    }else {
       // UPDATE failed
+      mysqli_free_result($result);
       echo mysqli_error($db);
       db_disconnect($db);
       exit;
@@ -48,22 +51,13 @@ if(is_post_request()) {
 <h3>Edit Staff</h3>
 <hr/>
 
-<form action="<?php echo url_for('./staff/edit.php?id= '. h(u($staff['Staff_ID'])) ); ?>" method="post">
+<form action="<?php echo url_for('./staff/edit.php?id='.h(u($staff['Staff_ID'])) ); ?>" method="post">
+
   <div class="form-row">
-
-   <div class="form-group col-md-5">
-      <label for="staffid">Staff_ID*</label>
-      <input type="text" class="form-control" name="staffID" placeholder="Name" value="<?php echo h($staff['Staff_ID']); ?>" method="post" required>
-
-  </div>
-  
-  <div class="form-row">
-
    <div class="form-group col-md-5">
       <label for="name">Name*</label>
-      <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo h($staff['Name']); ?>" method="post" required>
+      <input type="text" class="form-control" name="name" value="<?php echo h($staff['Name']); ?>" method="post" required>
     </div>
-
   </div>
 
   <div class="form-row">

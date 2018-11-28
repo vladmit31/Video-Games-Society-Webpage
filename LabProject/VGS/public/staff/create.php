@@ -1,9 +1,9 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
+<?php require_Secretary_login(); ?>
 <?php
 if(is_post_request()) {
 
-  // Handle form values sent by new.php
 
   $staff = [];
   $staff['Staff_ID'] = $_POST['staffID'] ?? '';
