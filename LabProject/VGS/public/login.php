@@ -7,12 +7,19 @@ if(is_post_request()) {
   $username = $_POST['username'] ?? '';
   $password = $_POST['pass'] ?? '';
 
-    // $admin = find_admin_by_username($username);
-    if($username == 'kotsios'){//$admin) {
+    $sql = "SELECT * FROM Staff ";
+    $sql .= "WHERE Staff_ID='" . $username . "' ";
+    $sql .= "LIMIT 1;";
+    $result = mysqli_query($db, $sql);
+    confirm_result_set($result);
+    
+    $staff = mysqli_fetch_assoc($result); 
+    mysqli_free_result($result);
    
-      if($password== 'pass'){//password_verify($password, $admin['hashed_password'])) {
-        echo $username;
-        // password matches
+    if($username == 'kotsios'){ //$staff){
+   
+      if($password == 'pass' ){// $password_verify($password, "pass")) {
+
         login($username);
 
         redirect_to(url_for('./games/index.php'));

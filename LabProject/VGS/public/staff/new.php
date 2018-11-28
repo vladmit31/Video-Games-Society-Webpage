@@ -9,6 +9,13 @@
 <form action="<?php echo url_for('./staff/create.php'); ?>" method="post">
   <div class="form-row">
     <div class="form-group col-md-5">
+      <label for="staffid">Staff_ID*</label>
+      <input type="text" class="form-control" name="staffID" placeholder="Staff ID" method="post" required>
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-5">
       <label for="name">Name*</label>
       <input type="text" class="form-control" name="name" placeholder="Name" method="post" required>
     </div>

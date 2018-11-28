@@ -8,11 +8,13 @@ if(is_post_request()) {
   // Handle form values sent by edit.php
     
   $staff = [];
+  $staff['Staff_ID'] = $_POST['staffID'] ?? '';
   $staff['Name'] = $_POST['name'] ?? '';
   $staff['Role'] = $_POST['role'] ?? '';
 
    
   $sql = "UPDATE Staff SET ";
+    $sql .= "Staff_ID='" . $staff['Staff_ID'] . "',";
     $sql .= "Name='" . $staff['Name'] . "',";
     $sql .= "Role='" . $staff['Role'] . "' "; 
     $sql .= "WHERE Staff_ID='" . $id . "'";
@@ -37,7 +39,7 @@ if(is_post_request()) {
     $result = mysqli_query($db, $sql);
     confirm_result_set($result);
     
-    $member = mysqli_fetch_assoc($result);
+    $staff = mysqli_fetch_assoc($result);
     mysqli_free_result($result);
 
 ?>
@@ -46,7 +48,15 @@ if(is_post_request()) {
 <h3>Edit Staff</h3>
 <hr/>
 
-<form action="<?php echo url_for('./members/edit.php?id= '. h(u($staff['Staff_ID'])) ); ?>" method="post">
+<form action="<?php echo url_for('./staff/edit.php?id= '. h(u($staff['Staff_ID'])) ); ?>" method="post">
+  <div class="form-row">
+
+   <div class="form-group col-md-5">
+      <label for="staffid">Staff_ID*</label>
+      <input type="text" class="form-control" name="staffID" placeholder="Name" value="<?php echo h($staff['Staff_ID']); ?>" method="post" required>
+
+  </div>
+  
   <div class="form-row">
 
    <div class="form-group col-md-5">
@@ -67,9 +77,9 @@ if(is_post_request()) {
               <option value="Volunteer">Volunteer</option>        
         <?php } ?>
          <?php if( ($staff['Role']) == 'Secretary'){ ?>
-              <option value="0">0</option>
+              <option value=""></option>
               <option selected="selected" value="Secretary">Secretary</option>
-              <option value="2">2</option>        
+              <option value="Volunteer">Volunteer</option>        
         <?php } ?>
           <?php if( ($staff['Role']) == 'Volunteer'){ ?>
               <option value=""></option>
