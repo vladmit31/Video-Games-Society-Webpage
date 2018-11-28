@@ -1,7 +1,3 @@
-
-<!-- This document contains the universal header, holding the login and search buttons as well as a link back the the main landing page-->
-
-
 <!doctype html>
 <html lang="en">
 
@@ -42,18 +38,26 @@
       </div>
     </nav>
     </form> 
-   
+ 
+  
     <div class="row">
         <div class= "col">
                 <div class="actions">
                  <br><br><br>
                     <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/games/index.php'); ?>">Games</a>
                      <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/members/index.php'); ?>">Members</a>
-                
+                    <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/staff/index.php'); ?>">Staff</a>
+                    <a class="btn btn-primary" href="<?php echo url_for('../../VGS/public/login.php'); ?>">Logout</a>
                 </div>
             
         </div> 
     </div>
-    
+          
+    <?php require_login(); ?>
+      
+    <b><?php echo 'Username: ';?></b>  <?php echo $_SESSION['username']; ?>
+        <br>
+     <b><?php echo 'Role: ';?></b>  <?php echo $_SESSION['role']; ?>
     <br>
+
     <body>

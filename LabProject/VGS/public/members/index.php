@@ -9,24 +9,9 @@
     
     <hr/>
     
-    <?php 
-    if(is_post_request()) {
-       $input = $_POST['searchValue'] ?? '';
-       
-       $sql = "SELECT * FROM Members ";
-       $sql .= "WHERE Title like '%$input%' || Genre like '%$input%' || Description like '%$input%'";                 
-       $sql .= "ORDER BY Member_ID DESC";
-        
-       $result = mysqli_query($db, $sql);
-       confirm_result_set($result);
-       
-       if($input == '')
-            $result = find_all_members();
-       
-    }else  $result = find_all_members(); 
-    ?>
     
-    <?php while($member = mysqli_fetch_assoc($result)){ ?>
+    <?php $result = find_all_members(); 
+    while($member = mysqli_fetch_assoc($result)){ ?>
     
       <div class="row">
         <div class="col-md-6">
