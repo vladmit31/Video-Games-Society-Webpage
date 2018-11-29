@@ -17,9 +17,9 @@ if(is_post_request()) {
 
     $staff = mysqli_fetch_assoc($result); 
     mysqli_free_result($result);
-   
-    if($staff){ 
-      if(password_verify($password, $staff['Pass'])) { //$password == $staff['Pass']){
+
+    if ($staff) {
+        if (md5($password) == $staff['Pass']) { //$password == $staff['Pass']){
         login($username, $staff['Role']);
         redirect_to(url_for('./games/index.php'));
       }
