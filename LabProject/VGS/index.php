@@ -46,7 +46,7 @@
     <body>
     <div class="actions">
      <br>
-        <a class="btn btn-primary" href="./public/login.php">Login</a>
+        <a class="btn btn-primary" href="./public/login.php" style="float: right">Login</a>
     </div>
     
    <br>
