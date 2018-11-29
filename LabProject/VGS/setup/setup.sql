@@ -1,63 +1,62 @@
-
 CREATE DATABASE db;
 USE db;
 
 CREATE TABLE Members(
- Member_ID INT NOT NULL AUTO_INCREMENT,
- Name VARCHAR(64) NOT NULL,
- Tel VARCHAR(15),
- Email VARCHAR(254),
- Extensions_Made INT NOT NULL,
+                      Member_ID       INT         NOT NULL AUTO_INCREMENT,
+                      Name            VARCHAR(64) NOT NULL,
+                      Tel             VARCHAR(15),
+                      Email           VARCHAR(254),
+                      Extensions_Made INT         NOT NULL,
 
- PRIMARY KEY (Member_ID)
+                      PRIMARY KEY (Member_ID)
 );
 
 CREATE TABLE Games(
- Game_ID INT NOT NULL AUTO_INCREMENT,
- Title VARCHAR(32) NOT NULL,
- Genre VARCHAR(32),
- Release_Year DATE NOT NULL,
- Description VARCHAR(1024),
- FormatOfGame VARCHAR(9),
- Value INT NOT NULL,
-    isAvailable BOOLEAN NOT NULL,
+                    Game_ID      INT         NOT NULL AUTO_INCREMENT,
+                    Title        VARCHAR(32) NOT NULL,
+                    Genre        VARCHAR(32),
+                    Release_Year DATE        NOT NULL,
+                    Description  VARCHAR(1024),
+                    FormatOfGame VARCHAR(9),
+                    Value        INT         NOT NULL,
+                    isAvailable  BOOLEAN     NOT NULL,
 
- PRIMARY KEY (Game_ID)
+                    PRIMARY KEY (Game_ID)
 
 );
 
 CREATE TABLE Rentals(
- Rental_ID INT NOT NULL AUTO_INCREMENT,
- Member_ID INT,
- Game_ID INT,
- Start_Date DATE NOT NULL,
- Returned_Date DATE,
- Extension_Made BOOLEAN NOT NULL,
+                      Rental_ID      INT     NOT NULL AUTO_INCREMENT,
+                      Member_ID      INT,
+                      Game_ID        INT,
+                      Start_Date     DATE    NOT NULL,
+                      Returned_Date  DATE,
+                      Extension_Made BOOLEAN NOT NULL,
 
- PRIMARY KEY (Rental_ID),
- FOREIGN KEY (Member_ID) REFERENCES Members (Member_ID) ON DELETE CASCADE ON UPDATE CASCADE,
- FOREIGN KEY (Game_ID) REFERENCES Games(Game_ID) ON DELETE CASCADE ON UPDATE CASCADE
+                      PRIMARY KEY (Rental_ID),
+                      FOREIGN KEY (Member_ID) REFERENCES Members (Member_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+                      FOREIGN KEY (Game_ID) REFERENCES Games (Game_ID) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 
 CREATE TABLE Staff(
- Staff_ID VARCHAR(64) NOT NULL,
- Name VARCHAR(64) NOT NULL,
- Role VARCHAR(20),
- Pass VARCHAR(255) NOT NULL,
- 
- PRIMARY KEY (Staff_ID )
+                    Staff_ID VARCHAR(64)  NOT NULL,
+                    Name     VARCHAR(64)  NOT NULL,
+                    Role     VARCHAR(20),
+                    Pass     VARCHAR(255) NOT NULL,
+
+                    PRIMARY KEY (Staff_ID)
 );
 
 CREATE TABLE Bans(
- Ban_ID INT NOT NULL AUTO_INCREMENT,
-  Rental_ID INT,
- Reason VARCHAR(256) NOT NULL,
- Start_Date DATE NOT NULL,
- End_Date DATE,
+                   Ban_ID     INT          NOT NULL AUTO_INCREMENT,
+                   Rental_ID  INT,
+                   Reason     VARCHAR(256) NOT NULL,
+                   Start_Date DATE         NOT NULL,
+                   End_Date   DATE,
 
- PRIMARY KEY (Ban_ID),
- FOREIGN KEY(Rental_ID) REFERENCES Rentals(Rental_ID)
+                   PRIMARY KEY (Ban_ID),
+                   FOREIGN KEY (Rental_ID) REFERENCES Rentals (Rental_ID)
 
 
 );
@@ -81,9 +80,12 @@ INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(1,2,'201
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(2,1,'2018-11-04',false);
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(5,3,'2018-10-16',false);
 
-INSERT INTO Staff(Staff_ID, Name, Role, Pass) VALUES('alice', 'Alice Miller', 'Secretary', 'AlMil');
-INSERT INTO Staff(Staff_ID, Name, Role, Pass) VALUES('bob','Bob Taylor', 'Volunteer', 'BobTay123');
-INSERT INTO Staff(Staff_ID, Name, Role, Pass) VALUES('charlie','Charlie Smith', 'Volunteer', 'ChSm987');
+INSERT INTO Staff(Staff_ID, Name, Role, Pass)
+VALUES ('alice', 'Alice Miller', 'Secretary', MD5('AlMil'));
+INSERT INTO Staff(Staff_ID, Name, Role, Pass)
+VALUES ('bob', 'Bob Taylor', 'Volunteer', MD5('BobTay123'));
+INSERT INTO Staff(Staff_ID, Name, Role, Pass)
+VALUES ('charlie', 'Charlie Smith', 'Volunteer', MD5('ChSm987'));
 
 INSERT INTO Bans(Rental_ID, Reason, Start_Date, End_Date) VALUES(1, 'Late Return', '2018-11-15', NULL);
 

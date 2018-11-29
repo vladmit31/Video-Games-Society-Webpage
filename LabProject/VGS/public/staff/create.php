@@ -10,9 +10,9 @@ if(is_post_request()) {
   $staff['Name'] = $_POST['name'] ?? '';
   $staff['Role'] = $_POST['role'] ?? '';
   $staff['Pass'] = $_POST['password'] ?? '';
-   
-   $hashed_password = password_hash($staff['Pass'], PASSWORD_BCRYPT);
-   
+
+    $hashed_password = md5($staff['Pass']);
+
    $sql = "INSERT INTO Staff ";
     $sql .= "(Staff_ID,Name,Role,Pass) ";
     $sql .= "VALUES (";
