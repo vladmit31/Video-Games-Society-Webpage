@@ -32,7 +32,6 @@
         <div class="col-md-6">
           <h3><?php echo h($game['Title']); ?></h3>
           <p><?php echo ($game['Description']) ?></p>
-          
           <div class= "col">
                 <a class="btn btn-primary" href="<?php echo url_for('./games/show.php?id=' . h(u($game['Game_ID']))); ?>"> See More</a> 
                 <a class="btn btn-primary" href="<?php echo url_for('./games/edit.php?id=' . h(u($game['Game_ID']))); ?>">Edit</a> 
