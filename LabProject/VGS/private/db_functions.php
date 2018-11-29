@@ -11,13 +11,25 @@
     return $result;
   }
   
+   function find_rental_ID($id) {
+        global $db;
+    
+        $sql = "SELECT Rentals.Rental_ID, Games.Title, Members.Name, Rentals.Start_Date, Rentals.Returned_Date, Rentals.Extension_Made ";
+        $sql .="FROM Rentals,Members, Games ";
+        $sql .="WHERE Games.Game_ID = Rentals.Game_ID AND Members.Member_ID = Rentals.Member_ID AND Rentals.Rental_ID =" . $id;
+        $result = mysqli_query($db, $sql);
+        confirm_result_set($result);
+    return $result;
+  }
+
+  
     function find_all_rentals() {
         global $db;
     
-        $sql = "SELECT * FROM Rentals ";
-        $sql .="LEFT JOIN Games ";
-        $sql .="ON Rentals.GAME_ID = Games.GAME_ID ";
-        $sql .="ORDER BY Rental_ID ASC";
+        $sql = "SELECT Rentals.Rental_ID, Games.Title, Members.Name, Rentals.Start_Date, Rentals.Returned_Date, Rentals.Extension_Made ";
+        $sql .="FROM Rentals,Members, Games ";
+        $sql .="WHERE Games.Game_ID = Rentals.Game_ID AND Members.Member_ID = Rentals.Member_ID";
+        $result = mysqli_query($db, $sql);
         confirm_result_set($result);
     return $result;
   }
