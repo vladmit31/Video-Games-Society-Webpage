@@ -41,12 +41,14 @@ CREATE TABLE Rentals(
 );
 
 CREATE TABLE Staff(
- Staff_ID INT NOT NULL AUTO_INCREMENT,
+ Staff_ID VARCHAR(64) NOT NULL,
  Name VARCHAR(64) NOT NULL,
  Role VARCHAR(20),
-
+ Pass VARCHAR(255) NOT NULL,
+ 
  PRIMARY KEY (Staff_ID )
 );
+
 CREATE TABLE Bans(
  Ban_ID INT NOT NULL AUTO_INCREMENT,
   Rental_ID INT,
@@ -75,13 +77,13 @@ INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvai
 INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Far Cry 5', 'Action' , '2018-03-27', 'The main story revolves around the Project at Eden Gate, a doomsday cult that rules the land under the guise of its charismatic leader, Joseph Seed.', 'CD',25,true);
 INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Assassins Creed Odyssey', 'Action' , '2018-10-05', 'It is the eleventh major installment, and twentieth overall, in the Assassins Creed series and the successor to 2017 Assassins Creed Origins','CD',45,true);
 
-
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(1,2,'2018-11-11',false);
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(2,1,'2018-11-04',false);
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(5,3,'2018-10-16',false);
 
-INSERT INTO Staff(Name, Role) VALUES('Alice Miller', 'Secretary');
-INSERT INTO Staff(Name, Role) VALUES('Bob Taylor', 'Volunteer');
-INSERT INTO Staff(Name, Role) VALUES('Charlie Smith', 'Volunteer');
+INSERT INTO Staff(Staff_ID, Name, Role, Pass) VALUES('alice', 'Alice Miller', 'Secretary', 'AlMil');
+INSERT INTO Staff(Staff_ID, Name, Role, Pass) VALUES('bob','Bob Taylor', 'Volunteer', 'BobTay123');
+INSERT INTO Staff(Staff_ID, Name, Role, Pass) VALUES('charlie','Charlie Smith', 'Volunteer', 'ChSm987');
 
 INSERT INTO Bans(Rental_ID, Reason, Start_Date, End_Date) VALUES(1, 'Late Return', '2018-11-15', NULL);
+
