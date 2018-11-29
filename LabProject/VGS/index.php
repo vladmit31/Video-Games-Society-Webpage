@@ -1,4 +1,4 @@
-<?php require_once('../private/initialize.php'); 
+<?php require_once('./private/initialize.php'); 
 ?>
 
 <!doctype html>
@@ -13,10 +13,10 @@
 
     <title>Video Game Society</title>
 
-    <link href="./css/games.css" rel="stylesheet">
+    <link href="./public/css/games.css" rel="stylesheet">
 
 
-    <link href="./css/gameList.css" rel="stylesheet">
+    <link href="./public/css/gameList.css" rel="stylesheet">
 
 
     <style>
@@ -44,13 +44,11 @@
     </form> 
     
     <body>
-   
     <div class="actions">
      <br>
-        <a class="btn btn-primary" href="./login.php">Login</a>
+        <a class="btn btn-primary" href="./public/login.php">Login</a>
     </div>
     
-   
    <br>
     
 
@@ -71,9 +69,8 @@
        
     }else  $result = find_all_games(); 
     ?>
-   
-    <?php while($game = mysqli_fetch_assoc($result)){ ?>
     
+    <?php while($game = mysqli_fetch_assoc($result)){ ?>
     
       <div class="row" style="margin:0px auto">
         <div class="col-md-6" style="margin:0px auto">
