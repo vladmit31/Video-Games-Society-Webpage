@@ -37,7 +37,7 @@
       <div class="container">
         <a class="navbar-brand" href="./index.php">Video Game Society</a>
         
-            <input class="form-control" type="text" name="searchValue" placeholder="Search games" aria-label="Search">
+            <input class="form-control" type="text" name="searchValue" placeholder="Search games(Title, Genre, Description)" aria-label="Search">
       
       </div>
     </nav>
