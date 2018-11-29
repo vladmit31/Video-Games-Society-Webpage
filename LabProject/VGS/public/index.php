@@ -45,6 +45,12 @@
     
     <body>
    
+    <div class="actions">
+     <br>
+        <a class="btn btn-primary" href="./login.php">Login</a>
+    </div>
+    
+   
    <br>
     
 
@@ -65,8 +71,9 @@
        
     }else  $result = find_all_games(); 
     ?>
-    
+   
     <?php while($game = mysqli_fetch_assoc($result)){ ?>
+    
     
       <div class="row" style="margin:0px auto">
         <div class="col-md-6" style="margin:0px auto">
