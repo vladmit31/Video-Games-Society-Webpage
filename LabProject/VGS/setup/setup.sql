@@ -82,7 +82,7 @@ INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(5,3,'201
 
 INSERT INTO Staff(Staff_ID, Name, Role, Pass)
 VALUES ('alice', 'Alice Miller', 'Secretary', MD5('AlMil'));
-INSERT INTO Staff(Staff_ID, Name, Role, Pass)
+INSERT INTO Staff(Staff_ID, Name, Role, Pass)bb
 VALUES ('bob', 'Bob Taylor', 'Volunteer', MD5('BobTay123'));
 INSERT INTO Staff(Staff_ID, Name, Role, Pass)
 VALUES ('charlie', 'Charlie Smith', 'Volunteer', MD5('ChSm987'));

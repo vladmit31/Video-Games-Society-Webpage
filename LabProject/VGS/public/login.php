@@ -57,7 +57,7 @@ logout();
         </form>
         
         <div class="form-links">
-          <a href="#">Back</a>
+          <a href="../index.php">Back</a>
         </div>
       </section>  
       </div>

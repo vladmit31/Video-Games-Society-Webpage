@@ -1,4 +1,4 @@
-<?php require_once('../private/initialize.php'); 
+<?php require_once('./private/initialize.php'); 
 ?>
 
 <!doctype html>
@@ -13,10 +13,10 @@
 
     <title>Video Game Society</title>
 
-    <link href="./css/games.css" rel="stylesheet">
+    <link href="./public/css/games.css" rel="stylesheet">
 
 
-    <link href="./css/gameList.css" rel="stylesheet">
+    <link href="./public/css/gameList.css" rel="stylesheet">
 
 
     <style>
@@ -31,7 +31,7 @@
 
   <body>
 
-    <form action="<?php echo url_for('./index.php'); ?>" method="post">
+    <form action="index.php" method="post">
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -44,7 +44,11 @@
     </form> 
     
     <body>
-   
+    <div class="actions">
+     <br>
+        <a class="btn btn-primary" href="./public/login.php" style="float: right">Login</a>
+    </div>
+    
    <br>
     
 
