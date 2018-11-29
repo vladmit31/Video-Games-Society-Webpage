@@ -31,7 +31,7 @@
 
   <body>
 
-    <form action="<?php echo url_for('./index.php'); ?>" method="post">
+    <form action="index.php" method="post">
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
