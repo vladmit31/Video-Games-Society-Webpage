@@ -46,6 +46,17 @@
     return $result;
   }
   
+  function find_member_ban($id) {
+        global $db;
+
+        $sql = "SELECT Games.Title,Bans.Ban_ID, Bans.Reason, Bans.Start_Date, Bans.End_Date FROM Members,Rentals,Bans,Games ";
+        $sql .= "WHERE Games.Game_ID = Rentals.Game_ID AND Bans.Rental_ID = Rentals.Rental_ID AND Rentals.Member_ID ='" . $id ."' AND Members.Member_ID='" . $id . "'";
+        //echo $sql;
+        $result = mysqli_query($db, $sql);
+        confirm_result_set($result);
+    return $result;
+  }
+
    function find_all_staff() {
         global $db;
     

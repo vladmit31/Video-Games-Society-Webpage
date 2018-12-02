@@ -6,7 +6,7 @@ $id = $_GET['id'] ?? '';
 if($id == '')   redirect_to(url_for('./members/index.php'));
  
 if(is_post_request()){
-    echo 'POST';
+
     $sql = "DELETE FROM Members ";
     $sql.= "WHERE Member_ID='" . $id . "'";
     

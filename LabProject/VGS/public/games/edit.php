@@ -111,7 +111,7 @@ if(is_post_request()) {
     </div>
      <div class="form-group col-md-2">
       <label for="released_date">Released Date*</label>
-      <input type="text" class="form-control" name="released_date" value="<?php echo h($game['Release_Year']); ?>" placeholder="YYYY-MM-DD" required>
+      <input type="date" class="form-control" name="released_date" value="<?php echo h($game['Release_Year']); ?>" placeholder="YYYY-MM-DD" required>
     </div>
   </div>
     
