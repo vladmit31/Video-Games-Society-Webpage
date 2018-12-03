@@ -10,7 +10,7 @@ CREATE TABLE Members(
 
                       PRIMARY KEY (Member_ID)
 );
-q
+
 CREATE TABLE Games(
                     Game_ID      INT         NOT NULL AUTO_INCREMENT,
                     Title        VARCHAR(32) NOT NULL,
@@ -79,6 +79,7 @@ INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvai
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(1,2,'2018-11-11',false);
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(2,1,'2018-11-04',false);
 INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(5,3,'2018-10-16',false);
+
 
 INSERT INTO Staff(Staff_ID, Name, Role, Pass)
 VALUES ('alice', 'Alice Miller', 'Secretary', MD5('AlMil'));
