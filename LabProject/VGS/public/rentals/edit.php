@@ -1,102 +1,133 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
-<?php 
-$id = $_GET['id'] ?? '1'; // PHP > 7.0
+<?php
+$id = $_GET['id'] ?? ''; // PHP > 7.0
+if($id == '')  redirect_to(url_for('./rentals/index.php') );
 if(is_post_request()) {
 
-  $member = [];
-  $member['Name'] = $_POST['name'] ?? '';
-  $member['Tel'] = $_POST['tel'] ?? '';
-  $member['Email'] = $_POST['email'] ?? '';
-  $member['Extensions_Made'] = $_POST['extensions_made'] ?? '';
-   
-  $sql = "UPDATE Members SET ";
-    $sql .= "Name='" . $member['Name'] . "',";
-    $sql .= "Tel='" . $member['Tel'] . "',";
-    $sql .= "Email='" . $member['Email'] . "',";
-    $sql .= "Extensions_Made='" . $member['Extensions_Made'] . "' ";
-    $sql .= "WHERE Member_ID='" . $id . "'";
+  // Handle form values sent by new.php
+  $rentals = [];
+  $rentals['member'] = $_POST['member'] ?? '';
+  $rentals['game'] = $_POST['game'] ?? '';
+  $rentals['start'] = $_POST['start'] ?? '';
+  $rentals['end'] = $_POST['end'] ?? '';
+  $rentals['extension'] = $_POST['extension']=="1" ? '1' : '0';
+    
+    $resultM = find_member_by_name($rentals['member']);
+    $memberID = mysqli_fetch_assoc($resultM);
+    
+    $resultG = find_game_by_title($rentals['game']);
+    $gameID = mysqli_fetch_assoc($resultG);
 
-    $result = mysqli_query($db, $sql);
+   $sql = "UPDATE Rentals SET ";
+    $sql .= "Member_ID=" . $memberID['Member_ID'] . ",";
+    $sql .= "Game_ID=" . $gameID['Game_ID'] . ",";
+    $sql .= "Start_Date='" . $rentals['start'] . "',";
+    $sql .= "Returned_Date='" . $rentals['end'] . "',";
+    $sql .= "Extension_Made='" . $rentals['extension'] . "' ";
+    $sql .= "WHERE Rental_ID='" . $id . "'";
 
-    if($result) {
-      mysqli_free_result($result);
-      redirect_to(url_for('./members/index.php') );
+    if(mysqli_query($db, $sql)) {
+        $newID = mysqli_insert_id($db);    
+        redirect_to(url_for('./rentals/index.php'));
     } else {
-      // UPDATE failed
-      mysqli_free_result($result);
+      
       echo mysqli_error($db);
       db_disconnect($db);
-      exit;
+      //redirect_to(url_for('./members/new.php'));
+      
     }
-
     
 }
-
-    $sql = "SELECT * FROM Members ";
-    $sql.= "WHERE Member_ID='" . $id . "'";
     
+   $sql = "SELECT * FROM Rentals ";
+    $sql.= "WHERE Rental_ID='" . $id . "'";
+
     $result = mysqli_query($db, $sql);
-    confirm_result_set($result);
-    
-    $member = mysqli_fetch_assoc($result);
-    mysqli_free_result($result);
 
+    confirm_result_set($result);
+
+    $rental = mysqli_fetch_assoc($result);
+    
+    if($rental==null)
+        redirect_to(url_for('./rental/index.php') );
+
+    mysqli_free_result($result);
+    
+    $resultMember = find_member_by_id($rental['Member_ID']);
+    $theMember = mysqli_fetch_assoc($resultMember);
+    
+    $resultGame = find_game_by_id($rental['Game_ID']);
+    $theGame = mysqli_fetch_assoc($resultGame);
+     
+    $resultMembers = find_all_members(); 
+    $resultGames = find_all_games(); 
 ?>
 
+ 
 <br>
-<h3>Edit Member</h3>
+<h3>Edit Rental</h3>
 <hr/>
 
-<form action="<?php echo url_for('./members/edit.php?id= '. h(u($member['Member_ID'])) ); ?>" method="post">
+<form action="<?php echo url_for('./rentals/edit.php?id= '. h(u($rental['Rental_ID'])) ); ?>" method="post">
   <div class="form-row">
-   
-   <div class="form-group col-md-5">
-      <label for="name">Name*</label>
-      <input type="text" class="form-control" name="name" placeholder="Name" value="<?php echo h($member['Name']); ?>" method="post" required>
+    <div class="form-group col-md-5">
+      <label for="name">Member*</label>
+       <select name="member" class="form-control" id="member" method="post">
+          <?php while($member = mysqli_fetch_assoc($resultMembers)){ ?>
+             <?php $temp = h($member['Name']) ; ?>  
+              <?php if($member['Member_ID'] == $theMember['Member_ID']) { 
+              ?>
+                    <option selected value= "<?php echo $temp; ?>" > <?php echo h($member['Name']) ; ?>  </option>
+              <?php } else {
+              ?>
+                    <option value= "<?php echo $temp; ?>" > <?php echo h($member['Name']) ; ?>  </option>
+            
+          <?php }
+          } ?>
+      </select>
     </div>
    
    <div class="form-group col-md-5">
-      <label for="tel">Tel</label>
-      <input type="text" class="form-control" name="tel" placeholder="Tel" value="<?php echo h($member['Tel']); ?>" method="post">
+      <label for="game">Game*</label>
+      <select name="game" class="form-control" id="game" method="post">
+          <?php while($game = mysqli_fetch_assoc($resultGames)){ ?>
+               
+           <?php if($game['Game_ID'] == $theGame['Game_ID']) { 
+              ?>
+                    <option selected value= "<?php echo h($game['Title']); ?>" > <?php echo h($game['Title']) ; ?>  </option>
+              <?php } else {
+              ?>
+                    <option value= "<?php echo h($game['Title']); ?>" > <?php echo h($game['Title']) ; ?>  </option>
+          
+          <?php }
+           }?>
+      </select>
     </div>
   </div>
   
   <div class="form-row">
-  <div class="form-group col-md-5">
-      <label for="email">Email</label>
-      <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo h($member['Email']); ?>" method="post">
+  <div class="form-group col-md-3">
+      <label for="start">Start_Date</label>
+      <input type="date" class="form-control" name="start" value="<?php echo h($rental['Start_Date']) ; ?>" method="post" required >
+    </div>
+ <div class="form-group col-md-3">
+      <label for="end">Returned_Date</label>
+      <input type="date" class="form-control" name="end" value="<?php echo h($rental['Returned_Date']) ; ?>" method="post" required >
     </div>
   </div>
-
+  
   <div class="form-row">
     <div class="form-group col-md-3">
       <label for="extensions_made">Extensions Made</label>
-      <select name="extensions_made" class="form-control" method="post">
-      
-      <?php if( ($member['Extensions_Made']) == '0'){ ?>
-              <option selected="selected" value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>        
-        <?php } ?>
-         <?php if( ($member['Extensions_Made']) == '1'){ ?>
-              <option value="0">0</option>
-              <option selected="selected" value="1">1</option>
-              <option value="2">2</option>        
-        <?php } ?>
-          <?php if( ($member['Extensions_Made']) == '2'){ ?>
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option selected="selected" value="2">2</option>        
-        <?php } ?>
-     
-      </select>
+        <input type="checkbox" name="extension" <?php if( ($rental['Extension_Made']) == '1') echo 'checked'; ?> 
+        value="1" method="post">
     </div>
-    </div>
-  <button type="submit" class="btn btn-primary">Update</button>
+ </div>
+    <button type="submit" class="btn btn-primary">Update</button>
 </form>
 
-<hr/>
 
+<hr/>
 <?php include(SHARED_PATH . '/footer.php'); ?>
