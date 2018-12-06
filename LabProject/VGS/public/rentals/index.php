@@ -22,7 +22,7 @@
           <p><b>Extensions Made:</b> <?php echo $rental['Extension_Made'] == '1' ? 'Yes' : 'No'; ?> </p>
           <a class="btn btn-primary" href="<?php echo url_for('./rentals/edit.php?id=' . h(u($rental['Rental_ID']))); ?>">Edit</a> 
           <a class="btn btn-primary" href="<?php echo url_for('./rentals/delete.php?id=' . h(u($rental['Rental_ID']))); ?>">Delete</a> 
-          <a class="btn btn-primary" href="<?php echo url_for('./rentals/delete.php?id=' . h(u($rental['Rental_ID']))); ?>">Ban</a>
+          <a class="btn btn-primary" href="<?php echo url_for('./rentals/newBan.php?id=' . h(u($rental['Rental_ID']))); ?>">Ban</a>
        </div>
       </div>
 
