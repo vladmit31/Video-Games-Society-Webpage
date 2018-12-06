@@ -12,7 +12,7 @@ if(is_post_request()) {
     
     $sql = "INSERT INTO Bans ";
     $sql .= "(Rental_ID, Reason, Start_Date, End_Date)";
-    $sql .= "VALUES(" ;
+    $sql .= "VALUES(";
     $sql .= "" . $id . ", ";
     $sql .= "'" . $ban['Reason'] . "', ";
     $sql .= "'" . $ban['Start'] . "', ";

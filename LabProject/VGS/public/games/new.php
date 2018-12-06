@@ -51,6 +51,12 @@
         </div>
     </div>
     
+    <div class="form-group">
+        <div class="form-group col-m-10">
+            <input type="text" class="form-control" name="image" placeholder="Image Link" method="post"><br>
+        </div>
+    </div>
+ 
   <button type="submit" class="btn btn-primary">Add</button>
 </form>
 

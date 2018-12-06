@@ -21,6 +21,7 @@ mysqli_free_result($result);
     
 <div class="col">
         <div class="col-md-5">
+          <img height="300" width="400" src="<?php echo $game['image']; ?>" >
           <h3><?php echo h($game['Title']); ?></h3>
           <p><?php echo h($game['Description']) ?></p>
           <p><?php echo 'Genre: ' . h($game['Genre']); ?></p>
