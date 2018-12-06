@@ -14,9 +14,10 @@ if(is_post_request()) {
   $game['Release_Year'] = $_POST['released_date'] ?? '';
   $game['Description'] = $_POST['description'] ?? '';
   $game['isAvailable'] =  $_POST['isAvailable']=="1" ? '1' : '0';
+  $game['image'] = $_POST['image'] ?? '';
    
    $sql = "INSERT INTO Games ";
-    $sql .= "(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) ";
+    $sql .= "(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable,image) ";
     $sql .= "VALUES (";
     $sql .= "'" . $game['Title'] . "',";
     $sql .= "'" . $game['Genre'] . "',";
@@ -24,7 +25,8 @@ if(is_post_request()) {
     $sql .= "'" . $game['Description'] . "',";
     $sql .= "'" . $game['FormatOfGame'] . "',";
     $sql .= "'" . $game['Value'] . "',";
-    $sql .= "'" . $game['isAvailable'] . "'";
+    $sql .= "'" . $game['isAvailable'] . "',";
+    $sql .= "'" . $game['image'] . "'";
     $sql .= ")";
 
     if(mysqli_query($db, $sql)) {

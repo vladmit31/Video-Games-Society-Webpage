@@ -26,10 +26,10 @@
     }else  $result = find_all_games(); 
     ?>
     
-    <?php while($game = mysqli_fetch_assoc($result)){ ?>
-    
+    <?php while($game = mysqli_fetch_assoc($result)){ ?>    
+        
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <h3><?php echo h($game['Title']); ?></h3>
           <p><?php echo ($game['Description']) ?></p>
           <div class= "col">

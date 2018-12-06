@@ -15,8 +15,9 @@ if(is_post_request()) {
   $game['Value'] = $_POST['value'] ?? '';
   $game['Release_Year'] = $_POST['released_date'] ?? '';
   $game['Description'] = $_POST['description'] ?? '';
+  $game['image'] = $_POST['image'] ?? '';
   $game['isAvailable'] =  $_POST['isAvailable']=="1" ? '1' : '0';
-   
+       
   $sql = "UPDATE Games SET ";
     $sql .= "Title='" . $game['Title'] . "', ";
     $sql .= "Genre='" . $game['Genre'] . "', ";
@@ -24,7 +25,8 @@ if(is_post_request()) {
     $sql .= "Value='" . $game['Value'] . "', ";
     $sql .= "Release_Year='" . $game['Release_Year'] . "', ";
     $sql .= "Description='" . $game['Description'] . "', ";
-    $sql .= "isAvailable='" . $game['isAvailable'] . "'";
+    $sql .= "isAvailable='" . $game['isAvailable'] . "', ";
+     $sql .= "image='" . $game['image'] . "'";
     $sql .= "WHERE Game_ID='" . $id . "'";
 
 
@@ -128,6 +130,12 @@ if(is_post_request()) {
                 <?php if( ($game['isAvailable']) == '1') echo 'checked';
                 ?> 
             >Available<br>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="form-group col-m-10">
+            <input type="text" class="form-control" name="image" value="<?php echo h($game['image']); ?>" placeholder="Image Link" method="post"><br>
         </div>
     </div>
     
