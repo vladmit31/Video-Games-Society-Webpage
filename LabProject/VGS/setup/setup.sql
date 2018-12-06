@@ -20,7 +20,11 @@ CREATE TABLE Games(
                     FormatOfGame VARCHAR(9),
                     Value        INT         NOT NULL,
                     isAvailable  BOOLEAN     NOT NULL,
-
+                    
+                        
+                    image        VARCHAR(1024),
+                    ratings      VARCHAR(255),
+                    
                     PRIMARY KEY (Game_ID)
 
 );
@@ -72,7 +76,8 @@ INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('George Williams' , '
 INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Micheal Harris' , '07700 900312' , 'micheal@gmail.com' , 0);
 
 
-INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Red Dead Redemption 2', 'Action' , '2018-10-26', 'America, 1899. The end of the Wild West era has begun.','CD',50,true);
+INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable,image) 
+VALUES('Red Dead Redemption 2', 'Action' , '2018-10-26', 'America, 1899. The end of the Wild West era has begun.','CD',50,true,'https://cnet4.cbsistatic.com/img/S8SQuWpVFs4tbspqE-gSUsy8308=/1600x900/2018/05/02/92c85a25-1197-4555-bf25-096c8c85c7ea/rdr2-officialart-3840x2160.jpg');
 INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Far Cry 5', 'Action' , '2018-03-27', 'The main story revolves around the Project at Eden Gate, a doomsday cult that rules the land under the guise of its charismatic leader, Joseph Seed.', 'CD',25,true);
 INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Assassins Creed Odyssey', 'Action' , '2018-10-05', 'It is the eleventh major installment, and twentieth overall, in the Assassins Creed series and the successor to 2017 Assassins Creed Origins','CD',45,true);
 
