@@ -11,19 +11,19 @@
     
     <?php  $result = find_all_rentals();    ?>
     
-    
     <?php while($rental = mysqli_fetch_assoc($result)){ ?>
     
       <div class="row">
         <div class="col-md-6">
           <h3><?php echo h($rental['Title']); ?></h3>
-          <p><?php echo h($rental['Name']) ?></p>
-          <p>Start date : <?php echo h($rental['Start_Date']) ?></p>
-          <p>Returned date : <?php echo h($rental['Returned_Date']) ?></p>
-          <p>Extensions Made: <?php echo h($member['Extensions_Made']) ?></p>
-          <a class="btn btn-primary" href="<?php echo url_for('./games/show.php?id=' . h(u($rental['Rental_ID']))); ?>"> See More</a> 
+          <p><b>Member name: </b><?php echo h($rental['Name']) ?></p>
+          <p><b>Start date :</b> <?php echo h($rental['Start_Date']) ?></p>
+          <p><b>Returned date :</b> <?php echo h($rental['Returned_Date']) ?></p>
+          <p><b>Extensions Made:</b> <?php echo $rental['Extension_Made'] == '1' ? 'Yes' : 'No'; ?> </p>
+          <a class="btn btn-primary" href="<?php echo url_for('./rentals/edit.php?id=' . h(u($rental['Rental_ID']))); ?>">Edit</a> 
           <a class="btn btn-primary" href="<?php echo url_for('./rentals/delete.php?id=' . h(u($rental['Rental_ID']))); ?>">Delete</a> 
-        </div>
+          <a class="btn btn-primary" href="<?php echo url_for('./rentals/delete.php?id=' . h(u($rental['Rental_ID']))); ?>">Ban</a>
+       </div>
       </div>
 
 

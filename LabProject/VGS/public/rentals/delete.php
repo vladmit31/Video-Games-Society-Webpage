@@ -32,7 +32,7 @@ if(is_post_request()){
  <h6><b>Name: </b><?php echo h($rental['Name']); ?> </h6>
  <h6><b>Start Date: </b><?php echo h($rental['Start_Date']); ?> </h6>
  <h6><b>Returned Date: </b><?php if($rental['Returned_Date']==NULL) echo "Not returned yet"; else echo h($rental['Returned_Date']); ?> </h6>
- <h6><b>Extensions Made: </b><?php if($rental['Extensions_Made']==NULL) echo "0"; else echo h($rental['Returned_Date']); ?> </h6>
+ <h6><b>Extensions Made: </b><?php if($rental['Extensions_Made']==NULL) echo "No"; else echo 'Yes' ?> </h6>
  
     <br/>
     <form action="<?php echo url_for('./rentals/delete.php?id=' . h(u($rental['Rental_ID']))); ?>" method="post">
