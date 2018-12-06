@@ -4,7 +4,6 @@
 if(is_post_request()) {
 
   // Handle form values sent by new.php
-    echo  $_POST['member'];
   $rentals = [];
   $rentals['member'] = $_POST['member'] ?? '';
   $rentals['game'] = $_POST['game'] ?? '';
@@ -12,10 +11,10 @@ if(is_post_request()) {
   $rentals['end'] = $_POST['end'] ?? '';
   $rentals['extension'] = $_POST['extension']=="1" ? '1' : '0';
     
-    $resultM = find_member_by_id($rentals['member']);
+    $resultM = find_member_by_name($rentals['member']);
     $memberID = mysqli_fetch_assoc($resultM);
     
-    $resultG = find_game_by_id($rentals['game']);
+    $resultG = find_game_by_title($rentals['game']);
     $gameID = mysqli_fetch_assoc($resultG);
 
    $sql = "INSERT INTO Rentals ";

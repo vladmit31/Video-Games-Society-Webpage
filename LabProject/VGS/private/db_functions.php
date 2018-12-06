@@ -68,7 +68,7 @@
     return $result;
   }
   
-  function find_member_by_id($name) {
+  function find_member_by_name($name) {
         global $db;
     
         $sql = "SELECT * FROM Members ";
@@ -78,7 +78,7 @@
         confirm_result_set($result);
     return $result;
   }
-  function find_game_by_id($title) {
+  function find_game_by_title($title) {
         global $db;
     
         $sql = "SELECT * FROM Games ";
@@ -88,5 +88,28 @@
         confirm_result_set($result);
     return $result;
   }
+  
+   function find_member_by_id($id) {
+        global $db;
+    
+        $sql = "SELECT * FROM Members ";
+        $sql .= "WHERE Member_ID =" . $id . "";
+        //echo $sql;
+        $result = mysqli_query($db, $sql);
+        confirm_result_set($result);
+    return $result;
+  }
+  function find_game_by_id($id) {
+        global $db;
+    
+        $sql = "SELECT * FROM Games ";
+        $sql .= "WHERE Game_ID =" . $id . "";
+        //echo $sql;
+        $result = mysqli_query($db, $sql);
+        confirm_result_set($result);
+    return $result;
+  }
+
+
   
 ?>
