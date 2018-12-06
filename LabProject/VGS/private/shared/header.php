@@ -46,6 +46,7 @@
                  <br><br><br>
                     <a class="btn btn-primary" href="<?php echo url_for('../public/games/index.php'); ?>">Games</a>
                      <a class="btn btn-primary" href="<?php echo url_for('../public/members/index.php'); ?>">Members</a>
+                     <a class="btn btn-primary" href="<?php echo url_for('../public/rentals/index.php'); ?>">Rentals</a>
                     <a class="btn btn-primary" href="<?php echo url_for('../public/staff/index.php'); ?>">Staff</a>
                     <a class="btn btn-primary" href="<?php echo url_for('../public/login.php'); ?>">Logout</a>
                 </div>

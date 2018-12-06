@@ -52,19 +52,19 @@ if(is_post_request()) {
    
    <div class="form-group col-md-5">
       <label for="name">Reason*</label>
-      <textarea class="form-control" name="reason" rows="5" cols="100" method="post"><?php echo h($ban['Reason']);  ?></textarea>
+      <textarea class="form-control" name="reason" rows="5" cols="100" method="post" required><?php echo h($ban['Reason']);  ?></textarea>
     </div>
    </div>
    
    <div class="form-row">
    <div class="form-group col-md-3">
-      <label for="tel">Start Date</label>
-      <input type="date" class="form-control" name="start" placeholder="Start Date" value="<?php echo h($ban['Start_Date']); ?>" method="post">
+      <label for="tel">Start Date*</label>
+      <input type="date" class="form-control" name="start" placeholder="Start Date" value="<?php echo h($ban['Start_Date']); ?>" required method="post">
     </div>
   
   <div class="form-group col-md-3">
       <label for="enddate">End Date</label>
-      <input type="date" class="form-control" name="end" placeholder="End Date" value="<?php echo h($ban['End_Date']); ?>" method="post">
+      <input type="date" class="form-control" name="end" placeholder="End Date" value="<?php echo h($ban['End_Date']); ?>" required method="post">
     </div>
   </div>
 

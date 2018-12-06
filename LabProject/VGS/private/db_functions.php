@@ -67,4 +67,26 @@
         confirm_result_set($result);
     return $result;
   }
+  
+  function find_member_by_id($name) {
+        global $db;
+    
+        $sql = "SELECT * FROM Members ";
+        $sql .= "WHERE Name ='" . $name . "'";
+        //echo $sql;
+        $result = mysqli_query($db, $sql);
+        confirm_result_set($result);
+    return $result;
+  }
+  function find_game_by_id($title) {
+        global $db;
+    
+        $sql = "SELECT * FROM Games ";
+        $sql .= "WHERE Title ='" . $title . "'";
+        //echo $sql;
+        $result = mysqli_query($db, $sql);
+        confirm_result_set($result);
+    return $result;
+  }
+  
 ?>
