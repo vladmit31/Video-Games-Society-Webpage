@@ -16,6 +16,7 @@ if(is_post_request()) {
   $game['Release_Year'] = $_POST['released_date'] ?? '';
   $game['Description'] = $_POST['description'] ?? '';
   $game['image'] = $_POST['image'] ?? '';
+  $game['ratings'] = $_POST['ratings'] ?? '';
   $game['isAvailable'] =  $_POST['isAvailable']=="1" ? '1' : '0';
        
   $sql = "UPDATE Games SET ";
@@ -26,7 +27,8 @@ if(is_post_request()) {
     $sql .= "Release_Year='" . $game['Release_Year'] . "', ";
     $sql .= "Description='" . $game['Description'] . "', ";
     $sql .= "isAvailable='" . $game['isAvailable'] . "', ";
-     $sql .= "image='" . $game['image'] . "'";
+    $sql .= "ratings='" . $game['ratings'] . "',";
+    $sql .= "image='" . $game['image'] . "'";
     $sql .= "WHERE Game_ID='" . $id . "'";
 
 
@@ -136,6 +138,12 @@ if(is_post_request()) {
     <div class="form-group">
         <div class="form-group col-m-10">
             <input type="text" class="form-control" name="image" value="<?php echo h($game['image']); ?>" placeholder="Image Link" method="post"><br>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="form-group col-m-10">
+            <input type="text" class="form-control" value="<?php echo h($game['ratings']); ?>" name="ratings" placeholder="Ratings Link" method="post"><br>
         </div>
     </div>
     

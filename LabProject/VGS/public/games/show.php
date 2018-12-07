@@ -29,6 +29,7 @@ mysqli_free_result($result);
           <p><?php echo 'Format: ' . h($game['FormatOfGame']); ?></p>
           <p><?php echo 'Price: ' . '$'. h($game['Value']); ?></p>
           <p><b><?php echo $game['isAvailable'] == '1' ? 'Available' : 'Not Available'; ?></b></p>
+          <p><a href="<?php echo ($game['ratings']) ?>">Rating link</a></p>
           <a class="btn btn-primary" href="<?php echo url_for('./games/index.php'); ?>">Back to List</a> 
         </div>
 </div>
