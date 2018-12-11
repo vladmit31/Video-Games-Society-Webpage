@@ -5,7 +5,8 @@
      <div class="actions">
      <br>
         <a class="btn btn-primary" href="./new.php">Add Game</a>
-    </div>
+        <a class="btn btn-primary" href="./platforms.php">Platforms</a>
+    </div> 
     
     <hr/>
     
@@ -36,10 +37,10 @@
                 <a class="btn btn-primary" href="<?php echo url_for('./games/show.php?id=' . h(u($game['Game_ID']))); ?>"> See More</a> 
                 <a class="btn btn-primary" href="<?php echo url_for('./games/edit.php?id=' . h(u($game['Game_ID']))); ?>">Edit</a> 
                 <a class="btn btn-primary" href="<?php echo url_for('./games/delete.php?id=' . h(u($game['Game_ID']))); ?>">Delete</a> 
+            
           </div> 
         </div>
       </div>
-
 
     <hr/>
     <?php }?>

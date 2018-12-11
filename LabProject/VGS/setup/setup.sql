@@ -65,6 +65,15 @@ CREATE TABLE Bans(
 
 );
 
+CREATE TABLE Constants(
+                  Platform VARCHAR(9) NOT NULL,
+             
+                  PRIMARY KEY (Platform)                 
+);
+INSERT INTO Constants(Platform) VALUES('PC');
+INSERT INTO Constants(Platform) VALUES('PS4');
+INSERT INTO Constants(Platform) VALUES('XBoxOne');
+
 INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Marivel Jones' , '07700 900659' , 'marivel@gmail.com' , 0);
 INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Dario Johnson' , '07700 900406' , 'dario@gmail.com' , 0);
 INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Kandra Brown' , '07700 900331' , 'kandra@gmail.com' , 0);

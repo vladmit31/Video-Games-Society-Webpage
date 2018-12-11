@@ -5,7 +5,11 @@
 <br>
 <h3>Add new Game</h3>
 <hr/>
-
+        <?php 
+        $sql = "SELECT * FROM Constants";
+        $result = mysqli_query($db, $sql);
+        confirm_result_set($result);
+        ?>
 <form action="<?php echo url_for('./games/create.php'); ?>" method="post">
   <div class="form-row">
     <div class="form-group col-md-5">
@@ -21,12 +25,16 @@
   
   <div class="form-row">
     <div class="form-group col-md-3">
-      <label for="format">Format</label>
+      <label for="format">Platform</label>
       <select name="format" class="form-control" id="formatOfGame" method="post">
-          <option value=""> </option>
-          <option value="CD">CD</option>
-          <option value="DVD">DVD</option>
-          <option value="Cartridge">Cartridge</option>
+      
+        <option value=""> </option>
+        <?php while($platform = mysqli_fetch_assoc($result)){ ?>
+               
+         <option selected value= "<?php echo h($platform['Platform']); ?>" > <?php echo h($platform['Platform']) ; ?>  </option>
+   
+        <?php }?>
+      
       </select>
     </div>
     <div class="form-group col-md-2">

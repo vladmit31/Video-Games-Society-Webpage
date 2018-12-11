@@ -22,7 +22,6 @@ if(is_post_request()){
 
     confirm_result_set($result);
 
-    $game = mysqli_fetch_assoc($result);
 
     mysqli_free_result($result);
     

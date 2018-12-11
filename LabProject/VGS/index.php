@@ -81,12 +81,11 @@
           <p><b>Type:</b> <?php echo ($game['Genre']) ?></p>
           <p><b>Release Year:</b> <?php echo ($game['Release_Year']) ?></p>
           <p><b>Description:</b> <?php echo ($game['Description']) ?></p>
-          <p><b>Format:</b> <?php echo ($game['FormatOfGame']) ?></p>
+          <p><b>Platform:</b> <?php echo ($game['FormatOfGame']) ?></p>
            <p><b>Price:</b> <?php echo ($game['Value']) ?>£</p>
            <p><b>Is it available:</b> <?php if(($game['isAvailable']) == true){echo "Yes";}else{echo "No";}?></p>
            <p><a href="<?php echo ($game['ratings']) ?>">Rating link</a></p>
            <h6 style="color:Red">WARNING! If you LOST or DAMAGE the game, you will need to pay the fee!</h6>
-           
         </div>
       </div>
 
