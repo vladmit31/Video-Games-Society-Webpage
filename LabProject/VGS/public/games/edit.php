@@ -48,17 +48,21 @@ if(is_post_request()) {
 
     $sql = "SELECT * FROM Games ";
     $sql.= "WHERE Game_ID='" . $id . "'";
-    
     $result = mysqli_query($db, $sql);
-    
-    confirm_result_set($result);
-    
+    confirm_result_set($result); 
     $game = mysqli_fetch_assoc($result);
-    
+ 
     if($game==null)
         redirect_to(url_for('./games/index.php') );
         
     mysqli_free_result($result);
+    
+    
+        $sql1 = "SELECT * FROM Constants";
+        $resultPlatform = mysqli_query($db, $sql1);
+        confirm_result_set($resultPlatform);
+
+        
 
 ?>
 
@@ -83,30 +87,21 @@ if(is_post_request()) {
     <div class="form-group col-md-3">
       <label for="format">Format</label>
       <select name="format" class="form-control" id="formatOfGame" method="post">
-        <?php if( ($game['FormatOfGame']) == 'CD'){ ?>
-              <option value=""> </option>
-              <option selected="selected" value="CD">CD</option>
-              <option value="DVD">DVD</option>
-              <option value="Cartridge">Cartridge</option>        
-        <?php } ?>
-        <?php if( ($game['FormatOfGame']) == 'DVD'){ ?>
-              <option value=""> </option>
-              <option value="CD">CD</option>
-              <option selected="selected" value="DVD">DVD</option>
-              <option value="Cartridge">Cartridge</option>        
-        <?php } ?>
-        <?php if( ($game['FormatOfGame']) == 'Cartridge'){ ?>
-              <option value=""> </option>
-              <option value="CD">CD</option>
-              <option value="DVD">DVD</option>
-              <option selected="selected" value="Cartridge">Cartridge</option>        
-        <?php } ?>
-        <?php if( ($game['FormatOfGame']) == ''){ ?>
-              <option selected="selected" value=""> </option>
-              <option value="CD">CD</option>
-              <option value="DVD">DVD</option>
-              <option value="Cartridge">Cartridge</option>        
-        <?php } ?>
+        
+        <option value=""> </option>
+         <?php while($platform = mysqli_fetch_assoc($resultPlatform)){  ?>
+                        
+           <?php if($platform['Platform'] == $game['FormatOfGame']) { 
+              ?>
+                    <option selected value= "<?php echo h($game['FormatOfGame']); ?>" > <?php echo h($game['FormatOfGame']) ; ?>  </option>
+              <?php } else {
+              ?>    
+                    <option value= "<?php echo h($platform['Platform']); ?>" > <?php echo h($platform['Platform']) ; ?>  </option>
+          
+          <?php }
+           }?>
+        
+        
       </select>     
     </div>
     <div class="form-group col-md-2">

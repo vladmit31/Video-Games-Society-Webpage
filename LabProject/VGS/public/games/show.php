@@ -26,7 +26,7 @@ mysqli_free_result($result);
           <p><?php echo h($game['Description']) ?></p>
           <p><?php echo 'Genre: ' . h($game['Genre']); ?></p>
           <p><?php echo 'Release Year: ' . h($game['Release_Year']); ?></p>
-          <p><?php echo 'Format: ' . h($game['FormatOfGame']); ?></p>
+          <p><?php echo 'Platform: ' . h($game['FormatOfGame']); ?></p>
           <p><?php echo 'Price: ' . '$'. h($game['Value']); ?></p>
           <p><b><?php echo $game['isAvailable'] == '1' ? 'Available' : 'Not Available'; ?></b></p>
           <p><a href="<?php echo ($game['ratings']) ?>">Rating link</a></p>
