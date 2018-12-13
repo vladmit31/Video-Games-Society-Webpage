@@ -1,6 +1,11 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
+<!--Deletes a specific game
+    It takes a game ID and displays its data.
+    User can change that data
+-->
+
 <?php 
 $id = $_GET['id'] ?? ''; // PHP > 7.0
 if($id == '')  redirect_to(url_for('./games/index.php') );

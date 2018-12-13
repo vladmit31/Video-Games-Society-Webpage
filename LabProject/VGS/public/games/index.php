@@ -1,6 +1,8 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
+<!--Shows a list of all games-->
+
    <h1>All Games</h1>
      <div class="actions">
      <br>

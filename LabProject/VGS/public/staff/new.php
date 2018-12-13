@@ -25,7 +25,6 @@
     <div class="form-group col-md-3">
       <label for="role">Role</label>
       <select name="role" class="form-control" method="post">
-         <option value=""></option>
          <option value="Secretary">Secretary</option>
          <option value="Volunteer">Volunteer</option>    
       </select>

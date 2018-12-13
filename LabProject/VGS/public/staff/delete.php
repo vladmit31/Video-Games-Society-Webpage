@@ -3,7 +3,7 @@
 <?php require_Secretary_login(); ?>
 <hr/>
 <?php
-$id = $_GET['id'] ?? ''; 
+$id = mysqli_real_escape_string($db,$_GET['id']) ?? ''; 
 if($id == '')   redirect_to(url_for('./staff/index.php'));
  
 if(is_post_request()){

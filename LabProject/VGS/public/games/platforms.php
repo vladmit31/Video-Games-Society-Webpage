@@ -3,6 +3,10 @@
 <?php require_Secretary_login(); ?>
 <br/>
 
+<!--Displays the platform page
+    Here the user can add/edit/update a platform
+    -->
+
 <?php 
 if(is_post_request()) {
     $platform = [];

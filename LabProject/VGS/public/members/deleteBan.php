@@ -1,6 +1,6 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
-
+	<!-- Delete a ban based on the ban ID -->
 <?php 
     if(is_get_request()){
         $id = $_GET['id'] ?? ''; 

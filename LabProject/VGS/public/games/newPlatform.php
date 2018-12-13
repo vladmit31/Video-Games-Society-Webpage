@@ -2,6 +2,8 @@
 <?php include(SHARED_PATH . '/header.php'); ?>
 <?php require_Secretary_login(); ?>
 
+<!--Create a new platform and stores it inside the Constants table-->
+
 <?php
 if(is_post_request()) {
 

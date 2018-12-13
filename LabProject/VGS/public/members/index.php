@@ -1,6 +1,8 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
+	<!-- Shows all members -->
+
    <h1>All Members</h1>
      <div class="actions">
      <br>

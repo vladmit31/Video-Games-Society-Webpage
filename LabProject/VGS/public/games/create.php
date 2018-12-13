@@ -1,6 +1,8 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
+<!--Creates a new game from the input values-->
+
 <?php
 if(is_post_request()) {
 

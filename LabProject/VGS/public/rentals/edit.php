@@ -1,6 +1,6 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
-
+	<!-- Edit a rental  -->
 <?php
 $id = $_GET['id'] ?? ''; // PHP > 7.0
 if($id == '')  redirect_to(url_for('./rentals/index.php') );

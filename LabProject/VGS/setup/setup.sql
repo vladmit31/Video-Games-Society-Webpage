@@ -70,37 +70,4 @@ CREATE TABLE Constants(
              
                   PRIMARY KEY (Platform)                 
 );
-INSERT INTO Constants(Platform) VALUES('PC');
-INSERT INTO Constants(Platform) VALUES('PS4');
-INSERT INTO Constants(Platform) VALUES('XBoxOne');
 
-INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Marivel Jones' , '07700 900659' , 'marivel@gmail.com' , 0);
-INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Dario Johnson' , '07700 900406' , 'dario@gmail.com' , 0);
-INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Kandra Brown' , '07700 900331' , 'kandra@gmail.com' , 0);
-INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Adolph Wilson' , '07700 909159' , 'adolph@gmail.com' , 0);
-INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Tom Williams' , '07700 900199' , 'tom@gmail.com' , 0);
-INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Kayla Davis' , '07700 900312' , 'kayla@gmail.com' , 0);
-INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Steven Bonnell' , '07700 910462' , 'steven@gmail.com' , 1);
-INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('George Williams' , '07700 903284' , 'george@gmail.com' , 2);
-INSERT INTO Members(Name,Tel,Email,Extensions_Made) VALUES('Micheal Harris' , '07700 900312' , 'micheal@gmail.com' , 0);
-
-
-INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable,image) 
-VALUES('Red Dead Redemption 2', 'Action' , '2018-10-26', 'America, 1899. The end of the Wild West era has begun.','CD',50,true,'https://cnet4.cbsistatic.com/img/S8SQuWpVFs4tbspqE-gSUsy8308=/1600x900/2018/05/02/92c85a25-1197-4555-bf25-096c8c85c7ea/rdr2-officialart-3840x2160.jpg');
-INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Far Cry 5', 'Action' , '2018-03-27', 'The main story revolves around the Project at Eden Gate, a doomsday cult that rules the land under the guise of its charismatic leader, Joseph Seed.', 'CD',25,true);
-INSERT INTO Games(Title,Genre,Release_Year,Description,FormatOfGame,Value,isAvailable) VALUES('Assassins Creed Odyssey', 'Action' , '2018-10-05', 'It is the eleventh major installment, and twentieth overall, in the Assassins Creed series and the successor to 2017 Assassins Creed Origins','CD',45,true);
-
-INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(1,2,'2018-11-11',false);
-INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(2,1,'2018-11-04',false);
-INSERT INTO Rentals(Member_ID,Game_ID,Start_Date,Extension_Made) VALUES(5,3,'2018-10-16',false);
-
-
-INSERT INTO Staff(Staff_ID, Name, Role, Pass)
-VALUES ('alice', 'Alice Miller', 'Secretary', MD5('AlMil'));
-INSERT INTO Staff(Staff_ID, Name, Role, Pass)
-VALUES ('bob', 'Bob Taylor', 'Volunteer', MD5('BobTay123'));
-INSERT INTO Staff(Staff_ID, Name, Role, Pass)
-VALUES ('charlie', 'Charlie Smith', 'Volunteer', MD5('ChSm987'));
-
-INSERT INTO Bans(Rental_ID, Reason, Start_Date, End_Date) VALUES(1, 'Late Return', '2018-05-15', '2018-11-15');
-INSERT INTO Bans(Rental_ID, Reason, Start_Date, End_Date) VALUES(2, 'Late Return', '2018-06-27', '2018-12-27');

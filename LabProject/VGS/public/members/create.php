@@ -1,5 +1,6 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
+	<!-- Creates a new member -->
 <?php
 if(is_post_request()) {
 
