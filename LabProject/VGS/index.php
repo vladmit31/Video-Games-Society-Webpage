@@ -55,12 +55,13 @@
     
     <?php 
     if(is_post_request()) {
-       $input = $_POST['searchValue'] ?? '';
+       $input = mysqli_real_escape_string($db,$_POST['searchValue']) ?? '';
        
        $sql = "SELECT * FROM Games ";
        $sql .= "WHERE Title like '%$input%' || Genre like '%$input%' || Description like '%$input%'";                 
        $sql .= "ORDER BY Game_ID DESC";
         
+
        $result = mysqli_query($db, $sql);
        confirm_result_set($result);
        
