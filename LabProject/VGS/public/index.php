@@ -1,4 +1,4 @@
-<?php require_once('./private/initialize.php'); 
+<?php require_once('../private/initialize.php');
 ?>
 
 <!doctype html>
@@ -13,10 +13,10 @@
 
     <title>Video Game Society</title>
 
-    <link href="./public/css/games.css" rel="stylesheet">
+    <link href="css/games.css" rel="stylesheet">
 
 
-    <link href="./public/css/gameList.css" rel="stylesheet">
+    <link href="css/gameList.css" rel="stylesheet">
 
 
     <style>
@@ -35,7 +35,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="./index.php">Video Game Society</a>
+        <a class="navbar-brand" href="index.php">Video Game Society</a>
         
             <input class="form-control" type="text" name="searchValue" placeholder="Search games(Title, Genre, Description)" aria-label="Search">
       
@@ -46,7 +46,7 @@
     <body>
     <div class="actions">
      <br>
-        <a class="btn btn-primary" href="./public/login.php" style="float: right">Login</a>
+        <a class="btn btn-primary" href="login.php" style="float: right">Login</a>
     </div>
     
    <br><br>
