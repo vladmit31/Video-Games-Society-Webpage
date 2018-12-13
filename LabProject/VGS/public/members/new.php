@@ -1,6 +1,7 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
+	<!-- Display a form to input values for the new member-->
 
 <br>
 <h3>Add new Member</h3>
