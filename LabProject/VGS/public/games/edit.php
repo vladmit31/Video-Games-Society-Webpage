@@ -9,14 +9,14 @@ if(is_post_request()) {
   // Handle form values sent by edit.php
     
   $game = [];
-  $game['Title'] = $_POST['title'] ?? '';
-  $game['Genre'] = $_POST['genre'] ?? '';
-  $game['FormatOfGame'] = $_POST['format'] ?? '';
-  $game['Value'] = $_POST['value'] ?? '';
-  $game['Release_Year'] = $_POST['released_date'] ?? '';
-  $game['Description'] = $_POST['description'] ?? '';
-  $game['image'] = $_POST['image'] ?? '';
-  $game['ratings'] = $_POST['ratings'] ?? '';
+  $game['Title'] = mysqli_real_escape_string($db,$_POST['title']) ?? '';
+  $game['Genre'] = mysqli_real_escape_string($db,$_POST['genre']) ?? '';
+  $game['FormatOfGame'] = mysqli_real_escape_string($db,$_POST['format']) ?? '';
+  $game['Value'] = mysqli_real_escape_string($db,$_POST['value']) ?? '';
+  $game['Release_Year'] = mysqli_real_escape_string($db,$_POST['released_date']) ?? '';
+  $game['Description'] = mysqli_real_escape_string($db,$_POST['description']) ?? '';
+  $game['image'] = mysqli_real_escape_string($db,$_POST['image']) ?? '';
+  $game['ratings'] = mysqli_real_escape_string($db,$_POST['ratings']) ?? '';
   $game['isAvailable'] =  $_POST['isAvailable']=="1" ? '1' : '0';
        
   $sql = "UPDATE Games SET ";

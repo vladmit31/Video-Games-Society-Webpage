@@ -6,9 +6,9 @@ if(is_post_request()) {
 
 
   $staff = [];
-  $staff['Staff_ID'] = $_POST['staffID'] ?? '';
-  $staff['Name'] = $_POST['name'] ?? '';
-  $staff['Role'] = $_POST['role'] ?? '';
+  $staff['Staff_ID'] = mysqli_real_escape_string($db,$_POST['staffID']) ?? '';
+  $staff['Name'] = mysqli_real_escape_string($db,$_POST['name']) ?? '';
+  $staff['Role'] = mysqli_real_escape_string($db,$_POST['role']) ?? '';
   $staff['Pass'] = $_POST['password'] ?? '';
 
     $hashed_password = md5($staff['Pass']);

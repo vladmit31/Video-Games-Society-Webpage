@@ -6,9 +6,9 @@ $id = $_GET['id'] ?? '1'; // PHP > 7.0
 if(is_post_request()) {
 
   $ban = [];
-  $ban['Reason'] = $_POST['reason'] ?? '';
-  $ban['Start'] = $_POST['start'] ?? '';
-  $ban['End'] = $_POST['end'] ?? '';
+  $ban['Reason'] = mysqli_real_escape_string($db,$_POST['reason']) ?? '';
+  $ban['Start'] = mysqli_real_escape_string($db,$_POST['start']) ?? '';
+  $ban['End'] = mysqli_real_escape_string($db,$_POST['end']) ?? '';
 
     $sql = "UPDATE Bans SET ";
     $sql .= "Reason='" . $ban['Reason'] . "', ";
