@@ -1,6 +1,7 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 <hr/>
+	<!-- Delete a member based on the member ID  -->
 <?php
 $id = $_GET['id'] ?? ''; 
 if($id == '')   redirect_to(url_for('./members/index.php'));
