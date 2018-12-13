@@ -1,6 +1,8 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
+	<!-- Edit a member record-->
+
 <?php 
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 if(is_post_request()) {
