@@ -35,7 +35,7 @@ if(is_post_request()) {
 
     
 }
-
+    
     $sql = "SELECT * FROM Staff ";
     $sql.= "WHERE Staff_ID='" . $id . "'";
     
@@ -64,19 +64,12 @@ if(is_post_request()) {
     <div class="form-group col-md-3">
       <label for="role">Role</label>
       <select name="role" class="form-control" method="post">
-      
-      <?php if( ($staff['Role']) == ''){ ?>
-              <option selected="selected" value=""></option>
-              <option value="Secretary">Secretary</option>
-              <option value="Volunteer">Volunteer</option>        
-        <?php } ?>
+
          <?php if( ($staff['Role']) == 'Secretary'){ ?>
-              <option value=""></option>
               <option selected="selected" value="Secretary">Secretary</option>
               <option value="Volunteer">Volunteer</option>        
         <?php } ?>
           <?php if( ($staff['Role']) == 'Volunteer'){ ?>
-              <option value=""></option>
               <option value="Secretary">Secretary</option>
               <option selected="selected" value="Volunteer">Volunteer</option>        
         <?php } ?>

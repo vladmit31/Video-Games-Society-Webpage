@@ -1,3 +1,8 @@
+<!-- The header of almost every page
+     Contains the serach button for searching games and the buttons
+     that navigate to the other pages
+ -->
+
 <!doctype html>
 <html lang="en">
 

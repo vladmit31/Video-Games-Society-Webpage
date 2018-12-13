@@ -1,7 +1,9 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
-
+<!--Deletes a specific game
+    It takes a game ID and deletes that game
+-->
 <hr/>
 <?php
 $id = $_GET['id'] ?? ''; 

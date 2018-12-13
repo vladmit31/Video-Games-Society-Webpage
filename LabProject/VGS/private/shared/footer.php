@@ -1,3 +1,4 @@
+<!-- The footer of every page -->
 
     </body>
 
