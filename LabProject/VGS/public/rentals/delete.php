@@ -1,6 +1,7 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
+	<!-- Delete a rental based on rental ID -->
 
 <hr/>
 <?php
