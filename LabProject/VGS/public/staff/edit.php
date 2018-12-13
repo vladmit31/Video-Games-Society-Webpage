@@ -11,8 +11,8 @@ if(is_post_request()) {
 
     
   $staff = [];
-  $staff['name'] = $_POST['name'] ?? '';
-  $staff['role'] = $_POST['role'] ?? '';
+  $staff['name'] = mysqli_real_escape_string($db,$_POST['name']) ?? '';
+  $staff['role'] = mysqli_real_escape_string($db,$_POST['role']) ?? '';
 
    
   $sql = "UPDATE Staff SET ";

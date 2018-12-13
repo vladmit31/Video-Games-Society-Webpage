@@ -1,12 +1,13 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
+<?php require_Secretary_login(); ?>
 <br/>
 
 <?php 
 if(is_post_request()) {
     $platform = [];
-    $platform['Platform'] = $_POST['platform'] ?? '';
-    $platform['Updated'] = $_POST['updated'] ?? '';
+    $platform['Platform'] = mysqli_real_escape_string($db,$_POST['platform']) ?? '';
+    $platform['Updated'] = mysqli_real_escape_string($db,$_POST['updated']) ?? '';
     
     if($platform['Updated'] == ''){
         $sql = "DELETE FROM Constants ";

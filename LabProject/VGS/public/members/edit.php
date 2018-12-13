@@ -6,10 +6,10 @@ $id = $_GET['id'] ?? '1'; // PHP > 7.0
 if(is_post_request()) {
 
   $member = [];
-  $member['Name'] = $_POST['name'] ?? '';
-  $member['Tel'] = $_POST['tel'] ?? '';
-  $member['Email'] = $_POST['email'] ?? '';
-  $member['Extensions_Made'] = $_POST['extensions_made'] ?? '';
+  $member['Name'] = mysqli_real_escape_string($db,$_POST['name']) ?? '';
+  $member['Tel'] = mysqli_real_escape_string($db,$_POST['tel']) ?? '';
+  $member['Email'] = mysqli_real_escape_string($db,$_POST['email']) ?? '';
+  $member['Extensions_Made'] = mysqli_real_escape_string($db,$_POST['extensions_made']) ?? '';
    
   $sql = "UPDATE Members SET ";
     $sql .= "Name='" . $member['Name'] . "',";

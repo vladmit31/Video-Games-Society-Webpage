@@ -5,10 +5,10 @@ if(is_post_request()) {
 
   // Handle form values sent by new.php
   $rentals = [];
-  $rentals['member'] = $_POST['member'] ?? '';
-  $rentals['game'] = $_POST['game'] ?? '';
-  $rentals['start'] = $_POST['start'] ?? '';
-  $rentals['end'] = $_POST['end'] ?? '';
+  $rentals['member'] = mysqli_real_escape_string($db,$_POST['member']) ?? '';
+  $rentals['game'] = mysqli_real_escape_string($db,$_POST['game']) ?? '';
+  $rentals['start'] = mysqli_real_escape_string($db,$_POST['start']) ?? '';
+  $rentals['end'] = mysqli_real_escape_string($db,$_POST['end']) ?? '';
   $rentals['extension'] = $_POST['extension']=="1" ? '1' : '0';
     
     $resultM = find_member_by_name($rentals['member']);

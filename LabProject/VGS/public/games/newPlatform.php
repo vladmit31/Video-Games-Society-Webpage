@@ -1,6 +1,6 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
-
+<?php require_Secretary_login(); ?>
 
 <?php
 if(is_post_request()) {
@@ -8,9 +8,8 @@ if(is_post_request()) {
   // Handle form values sent by new.php
 
   $platform = [];
-  $platform['new'] = $_POST['new'] ?? '';
+  $platform['new'] = mysqli_real_escape_string($db,$_POST['new']) ?? '';
 
-   
    $sql = "INSERT INTO Constants ";
     $sql .= "(Platform) ";
     $sql .= "VALUES (";
