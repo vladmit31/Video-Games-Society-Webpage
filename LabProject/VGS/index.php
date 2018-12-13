@@ -1,3 +1,5 @@
+<?php require_once('private/initialize.php'); ?>
+
 <?php
 if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) { // Check if the website uses https
     $uri = 'https://';
@@ -5,7 +7,6 @@ if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) { // Check if the 
     $uri = 'http://';
 }
 $uri .= $_SERVER['HTTP_HOST'];
-header('Location: '.$uri.'/VGS/public/');
+redirect_to('public/index.php');
 exit;
 ?>
-
