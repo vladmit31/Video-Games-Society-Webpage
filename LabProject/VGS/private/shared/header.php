@@ -33,7 +33,7 @@
   <body>
 
 
-    <form action="<?php echo url_for('../../VGS/public/games/index.php'); ?>" method="post">
+    <form action="<?php echo url_for('../public/games/index.php'); ?>" method="post">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="../../public/games/index.php">Video Game Society</a>
