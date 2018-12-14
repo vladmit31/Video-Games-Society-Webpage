@@ -1,52 +1,54 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php include(SHARED_PATH . '/header.php'); ?>
 
-<!--Shows a list of all games-->
+    <!--Shows a list of all games-->
 
-   <h1>All Games</h1>
-     <div class="actions">
-     <br>
+    <h1>All Games</h1>
+    <div class="actions">
+        <br>
         <a class="btn btn-primary" href="./new.php">Add Game</a>
         <a class="btn btn-primary" href="./platforms.php">Platforms</a>
-    </div> 
-    
+    </div>
+
     <hr/>
-    
-    <?php 
-    if(is_post_request()) {
-       $input = mysqli_real_escape_string($db,$_POST['searchValue']) ?? '';
-       
-       $sql = "SELECT * FROM Games ";
-       $sql .= "WHERE Title like '%$input%' || Genre like '%$input%' || Description like '%$input%'";                 
-       $sql .= "ORDER BY Game_ID DESC";
-        
-       $result = mysqli_query($db, $sql);
-       confirm_result_set($result);
-       
-       if($input == '')
-            $result = find_all_games();
-       
-    }else  $result = find_all_games(); 
-    ?>
-    
-    <?php while($game = mysqli_fetch_assoc($result)){ ?>    
-        
-      <div class="row">
+
+<?php
+if (is_post_request()) {
+    $input = mysqli_real_escape_string($db, $_POST['searchValue']) ?? '';
+
+    $sql = "SELECT * FROM Games ";
+    $sql .= "WHERE Title like '%$input%' || Genre like '%$input%' || Description like '%$input%'";
+    $sql .= "ORDER BY Game_ID DESC";
+
+    $result = mysqli_query($db, $sql);
+    confirm_result_set($result);
+
+    if ($input == '')
+        $result = find_all_games();
+
+} else  $result = find_all_games();
+?>
+
+<?php while ($game = mysqli_fetch_assoc($result)) { ?>
+
+    <div class="row">
         <div class="col-md-5">
-          <h3><?php echo h($game['Title']); ?></h3>
-          <p><?php echo ($game['Description']) ?></p>
-          <div class= "col">
-                <a class="btn btn-primary" href="<?php echo url_for('./games/show.php?id=' . h(u($game['Game_ID']))); ?>"> See More</a> 
-                <a class="btn btn-primary" href="<?php echo url_for('./games/edit.php?id=' . h(u($game['Game_ID']))); ?>">Edit</a> 
-                <a class="btn btn-primary" href="<?php echo url_for('./games/delete.php?id=' . h(u($game['Game_ID']))); ?>">Delete</a> 
-            
-          </div> 
+            <h3><?php echo h($game['Title']); ?></h3>
+            <p><?php echo($game['Description']) ?></p>
+            <div class="col">
+                <a class="btn btn-primary"
+                   href="<?php echo url_for('./games/show.php?id=' . h(u($game['Game_ID']))); ?>"> See More</a>
+                <a class="btn btn-primary"
+                   href="<?php echo url_for('./games/edit.php?id=' . h(u($game['Game_ID']))); ?>">Edit</a>
+                <a class="btn btn-primary"
+                   href="<?php echo url_for('./games/delete.php?id=' . h(u($game['Game_ID']))); ?>">Delete</a>
+
+            </div>
         </div>
-      </div>
+    </div>
 
     <hr/>
-    <?php }?>
+<?php } ?>
 
-    
 
 <?php include(SHARED_PATH . '/footer.php'); ?>
